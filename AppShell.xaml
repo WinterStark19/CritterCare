@@ -7,9 +7,22 @@
     Shell.FlyoutBehavior="Flyout"
     Title="CritterCare">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <!-- Left Navigation Menu -->
+    <FlyoutItem Title="Home">
+        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Calendar">
+        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+    </FlyoutItem>
+
+    <!-- Settings Button (Top-Right Corner) -->
+    <Shell.ToolbarItems>
+        <ToolbarItem Text="Settings"
+                 IconImageSource="gear.png"
+                 Order="Primary"
+                 Priority="0"
+                 Clicked="OnSettingsClicked"/>
+    </Shell.ToolbarItems>
 
 </Shell>
