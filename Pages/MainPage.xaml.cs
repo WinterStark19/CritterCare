@@ -30,9 +30,3 @@ public partial class MainPage : ContentPage
         //await Shell.Current.GoToAsync(nameof(CalendarPage));
     }
 }
-
-// Pet class (could later be moved to a separate file)
-public class Pet
-{
-    public string Name { get; set; }
-}
