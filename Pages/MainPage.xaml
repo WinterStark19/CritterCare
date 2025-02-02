@@ -12,6 +12,12 @@
                    FontAttributes="Bold"
                    HorizontalOptions="Center" />
 
+            <Button Text="Add Pet"
+                Clicked="OpenAddPetPopup"
+                BackgroundColor="LightBlue"
+                Padding="10"
+                HorizontalOptions="Center"/>
+
             <!-- List of Pets (Placeholder) -->
             <Label Text="Your Pets:"
                    FontSize="18"
