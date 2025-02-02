@@ -13,7 +13,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Calendar">
-        <ShellContent Route="MainPage" ContentTemplate="{DataTemplate local:MainPage}" />
+        <ShellContent Route="CalendarPage" ContentTemplate="{DataTemplate local:CalendarPage}" />
     </FlyoutItem>
 
     <!-- Settings Button (Top-Right Corner) -->

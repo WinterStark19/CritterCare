@@ -7,7 +7,7 @@
             InitializeComponent();
 
             // Register routes for navigation
-            //Routing.RegisterRoute(nameof(Pages.CalendarPage), typeof(Pages.CalendarPage));
+            Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
             //Routing.RegisterRoute(nameof(Pages.SettingsPage), typeof(Pages.SettingsPage));
         }
 

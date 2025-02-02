@@ -20,13 +20,6 @@ public partial class MainPage : ContentPage
         PetListView.ItemsSource = pets;
     }
 
-    private async void GoToProfilePage(object sender, EventArgs e)
-    {
-        //await Shell.Current.GoToAsync(nameof(ProfilePage));
-    }
 
-    private async void GoToCalendarPage(object sender, EventArgs e)
-    {
-        //await Shell.Current.GoToAsync(nameof(CalendarPage));
-    }
+    
 }
