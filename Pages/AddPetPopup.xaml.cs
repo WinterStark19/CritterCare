@@ -4,9 +4,12 @@ namespace CritterCare;
 
 public partial class AddPetPopup : Popup
 {
+
+    private DatabaseManager _databaseManager;
     public AddPetPopup()
     {
         InitializeComponent();
+        _databaseManager = new DatabaseManager();
 
         var windowWidth = Application.Current.Windows[0].Width;
         var windowHeight = Application.Current.Windows[0].Height;
@@ -35,7 +38,7 @@ public partial class AddPetPopup : Popup
         };
 
         // Insert the new pet into the database
-        //_databaseManager.InsertPet(newPet);
+        _databaseManager.InsertPet(newPet);
 
         // Close the popup after saving
         ClosePopup(sender, e);
