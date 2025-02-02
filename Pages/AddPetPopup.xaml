@@ -7,6 +7,27 @@
 
     <VerticalStackLayout Padding="20" BackgroundColor="White">
 
+        <!-- Name Entry -->
+        <Label Text="Name" />
+        <Entry x:Name="NameEntry" Text="Nameless One" />
+
+        <!-- BirthDate Picker -->
+        <Label Text="Birth Date" />
+        <DatePicker x:Name="BirthDatePicker" />
+
+        <!-- Species Entry -->
+        <Label Text="Species" />
+        <Entry x:Name="SpeciesEntry" Text="Doge Coin" />
+
+        <!-- Breed Entry -->
+        <Label Text="Breed" />
+        <Entry x:Name="BreedEntry" />
+
+        <!-- Save Button to add pet to the database -->
+        <Button Text="Save Pet" Clicked="OnSavePetClicked"/>
+
+        <!-- Close Button -->
         <Button Text="Close" Clicked="ClosePopup"/>
     </VerticalStackLayout>
+
 </toolkit:Popup>

@@ -16,6 +16,31 @@ public partial class AddPetPopup : Popup
         this.Size = new Size(windowWidth * 0.6, windowHeight * 0.6);
     }
 
+    // Handle Save button click to save pet information
+    private void OnSavePetClicked(object sender, EventArgs e)
+    {
+        // Gather the data from the input fields
+        var name = NameEntry.Text;
+        var birthDate = BirthDatePicker.Date;
+        var species = SpeciesEntry.Text;
+        var breed = BreedEntry.Text;
+
+        // Create a new pet object
+        var newPet = new Pet
+        {
+            Name = name,
+            BirthDate = birthDate,
+            Species = species,
+            Breed = breed
+        };
+
+        // Insert the new pet into the database
+        //_databaseManager.InsertPet(newPet);
+
+        // Close the popup after saving
+        ClosePopup(sender, e);
+    }
+
     private void ClosePopup(object sender, EventArgs e)
     {
         Close();
