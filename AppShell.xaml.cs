@@ -8,12 +8,8 @@
 
             // Register routes for navigation
             Routing.RegisterRoute(nameof(CalendarPage), typeof(CalendarPage));
-            //Routing.RegisterRoute(nameof(Pages.SettingsPage), typeof(Pages.SettingsPage));
+            Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
         }
 
-        private async void OnSettingsClicked(object sender, EventArgs e)
-        {
-            //await Shell.Current.GoToAsync(nameof(SettingsPage));
-        }
     }
 }

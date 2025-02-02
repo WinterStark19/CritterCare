@@ -16,13 +16,8 @@
         <ShellContent Route="CalendarPage" ContentTemplate="{DataTemplate local:CalendarPage}" />
     </FlyoutItem>
 
-    <!-- Settings Button (Top-Right Corner) -->
-    <Shell.ToolbarItems>
-        <ToolbarItem Text="Settings"
-                 IconImageSource="gear.png"
-                 Order="Primary"
-                 Priority="0"
-                 Clicked="OnSettingsClicked"/>
-    </Shell.ToolbarItems>
+    <FlyoutItem Title="Settings">
+        <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
+    </FlyoutItem>
 
 </Shell>

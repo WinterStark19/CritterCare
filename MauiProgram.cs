@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 using CommunityToolkit.Maui;
 
 namespace CritterCare
@@ -10,7 +11,8 @@ namespace CritterCare
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .UseMauiCommunityToolkit()
+                .UseMauiCommunityToolkit() //Needed for Pop-ups
+                .ConfigureSyncfusionCore() //Needed for the calendar function
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

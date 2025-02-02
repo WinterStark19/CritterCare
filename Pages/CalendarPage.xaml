@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CritterCare.CalendarPage"
-             Title="Calendar">
+             xmlns:syncfusion="http://schemas.syncfusion.com/maui"
+             x:Class="CritterCare.CalendarPage">
+
     <VerticalStackLayout Padding="20">
         <Label Text="Your Pet Care Calendar"
                FontSize="24"
                HorizontalOptions="Center"
                VerticalOptions="Start" />
 
+        <!-- Syncfusion Scheduler control -->
+        <syncfusion:SfScheduler x:Name="PetScheduler"
+                                />
     </VerticalStackLayout>
 </ContentPage>
