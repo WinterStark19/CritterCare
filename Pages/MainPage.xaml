@@ -24,7 +24,7 @@
                    FontAttributes="Bold"
                    Margin="0,10,0,5" />
 
-            <CollectionView x:Name="PetListView">
+            <CollectionView x:Name="PetListView" SelectionMode="Single" SelectionChanged="OnPetSelected">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame Padding="10" Margin="5" BorderColor="Gray">
