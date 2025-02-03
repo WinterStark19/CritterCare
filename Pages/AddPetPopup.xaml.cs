@@ -2,11 +2,23 @@ using CommunityToolkit.Maui.Views;
 
 namespace CritterCare;
 
+/// <summary>
+/// Represents a popup for adding a new pet in the CritterCare application.
+/// It allows the user to input pet information and save it to the database.
+/// </summary>
 public partial class AddPetPopup : Popup
 {
 
+    // Initialize the database and reload action
     private DatabaseManager _databaseManager;
     private Action _reloadPetsAction;
+
+    /// <summary>
+    /// Initializes a new instance of the AddPetPopup class.
+    /// Sets up the popup's size relative to the screen size and stores the action to reload the pet list
+    /// on the main page after a new pet is added.
+    /// </summary>
+    /// <param name="reloadPetsAction">Action to reload the pet list after saving a new pet.</param>
     public AddPetPopup(Action reloadPetsAction)
     {
         InitializeComponent();
@@ -21,7 +33,10 @@ public partial class AddPetPopup : Popup
         this.Size = new Size(windowWidth * 0.6, windowHeight * 0.6);
     }
 
-    // Handle Save button click to save pet information
+    /// <summary>
+    /// Handles the Save button click event. Gathers data from input fields, creates a new pet object, 
+    /// inserts it into the database, and triggers the reload action which reloads the list on the main page.
+    /// </summary>
     private void OnSavePetClicked(object sender, EventArgs e)
     {
         // Gather the data from the input fields
@@ -42,12 +57,16 @@ public partial class AddPetPopup : Popup
         // Insert the new pet into the database
         _databaseManager.InsertPet(newPet);
 
+        // Reload the pet list in the main page to show the newly added pet
         _reloadPetsAction?.Invoke();
 
         // Close the popup after saving
         ClosePopup(sender, e);
     }
 
+    /// <summary>
+    /// Closes the popup window.
+    /// </summary>
     private void ClosePopup(object sender, EventArgs e)
     {
         Close();
