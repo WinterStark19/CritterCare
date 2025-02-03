@@ -6,10 +6,12 @@ public partial class AddPetPopup : Popup
 {
 
     private DatabaseManager _databaseManager;
-    public AddPetPopup()
+    private Action _reloadPetsAction;
+    public AddPetPopup(Action reloadPetsAction)
     {
         InitializeComponent();
         _databaseManager = new DatabaseManager();
+        _reloadPetsAction = reloadPetsAction;
 
         var windowWidth = Application.Current.Windows[0].Width;
         var windowHeight = Application.Current.Windows[0].Height;
@@ -39,6 +41,8 @@ public partial class AddPetPopup : Popup
 
         // Insert the new pet into the database
         _databaseManager.InsertPet(newPet);
+
+        _reloadPetsAction?.Invoke();
 
         // Close the popup after saving
         ClosePopup(sender, e);

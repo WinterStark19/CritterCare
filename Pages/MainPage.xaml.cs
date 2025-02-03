@@ -4,9 +4,13 @@ namespace CritterCare;
 
 public partial class MainPage : ContentPage
 {
+
+    private DatabaseManager _databaseManager;
+
     public MainPage()
     {
         InitializeComponent();
+        _databaseManager = new DatabaseManager();
         LoadPetData(); // Load pets into the UI
 
         Routing.RegisterRoute(nameof(AddPetPopup), typeof(AddPetPopup));
@@ -14,21 +18,18 @@ public partial class MainPage : ContentPage
 
     private void OpenAddPetPopup(object sender, EventArgs e)
     {
-        this.ShowPopup(new AddPetPopup());
+        this.ShowPopup(new AddPetPopup(LoadPetData));
     }
 
     private void LoadPetData()
     {
-        var pets = new List<Pet>
-        {
-            new Pet { Name = "Lady Pippin Seren" },
-            new Pet { Name = "River" },
-            new Pet { Name = "Cynda" }
-        };
+        // Fetch pets from the database
+        var pets = _databaseManager.GetPets();
 
+        // Bind the fetched data to the CollectionView
         PetListView.ItemsSource = pets;
     }
 
 
-    
+
 }
