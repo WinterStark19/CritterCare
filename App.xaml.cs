@@ -8,29 +8,41 @@ namespace CritterCare
         public App()
         {
             InitializeComponent();
+            ApplyTheme(); // Ensure theme is applied at startup
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            // Check the dark mode setting in Preferences (default is false)
-            bool isDarkMode = Preferences.Get("DarkMode", false);  // Default to light mode
+            return new Window(new AppShell());
+        }
 
-            // If dark mode is enabled, apply the dark theme
+        public void ApplyTheme()
+        {
+            bool isDarkMode = Preferences.Get("DarkMode", false);
+
             if (isDarkMode)
             {
-                // You can use dynamic resources to switch themes (colors, backgrounds, etc.)
-                Application.Current.Resources["PrimaryBackgroundColor"] = Color.FromHex("#121212"); // Dark background
-                Application.Current.Resources["PrimaryTextColor"] = Color.FromHex("#FFFFFF"); // Dark text
+                Current.Resources["PageBackgroundColor"] = Current.Resources["PageBackgroundColorDark"];
+                Current.Resources["TextColor"] = Current.Resources["TextColorDark"];
+                Current.Resources["FlyoutTextColor"] = Current.Resources["FlyoutTextColorDark"];
             }
             else
             {
-                // Apply light theme
-                Application.Current.Resources["PrimaryBackgroundColor"] = Color.FromHex("#FFFFFF"); // Light background
-                Application.Current.Resources["PrimaryTextColor"] = Color.FromHex("#000000"); // Light text
+                Current.Resources["PageBackgroundColor"] = Current.Resources["PageBackgroundColor"];
+                Current.Resources["TextColor"] = Current.Resources["TextColor"];
+                Current.Resources["FlyoutTextColor"] = Current.Resources["FlyoutTextColor"];
             }
 
-            // Return a new window with the AppShell
-            return new Window(new AppShell());
+            // Force the application to refresh the resources
+            foreach (var resource in Current.Resources.Keys)
+            {
+                var colorResource = Current.Resources[resource] as Color;
+                if (colorResource != null)
+                {
+                    Current.Resources[resource] = colorResource;
+                }
+            }
         }
     }
 }
+

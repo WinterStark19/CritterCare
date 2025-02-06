@@ -2,18 +2,45 @@
 <toolkit:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-               x:Class="CritterCare.PetDetailsPopup">
+                x:Class="CritterCare.PetDetailsPopup">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <!-- Pet Details -->
-        <Label x:Name="PetNameLabel" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
-        <Label x:Name="PetSpeciesLabel" FontSize="16" HorizontalOptions="Center"/>
-        <Label x:Name="PetBreedLabel" FontSize="16" HorizontalOptions="Center"/>
+    <VerticalStackLayout Padding="20" BackgroundColor="White" Spacing="15">
 
-        <!-- Edit and Close Buttons -->
-        <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+        <!-- Name -->
+        <Label Text="Name" />
+        <Entry x:Name="PetNameEntry" Text="{Binding Name}" IsReadOnly="True" Placeholder="Pet Name" />
+
+        <!-- Species & Breed -->
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Species" />
+                <Entry x:Name="PetSpeciesEntry" Text="{Binding Species}" IsReadOnly="True" Placeholder="Species" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Breed" />
+                <Entry x:Name="PetBreedEntry" Text="{Binding Breed}" IsReadOnly="True" Placeholder="Breed" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Birthdate & Weight -->
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Birth Date" />
+                <DatePicker x:Name="PetBirthDatePicker" Date="{Binding BirthDate}" IsEnabled="False"/>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Weight (lbs)" />
+                <Entry x:Name="PetWeightEntry" Text="{Binding Weight}" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Buttons -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
             <Button Text="Edit" Clicked="EditPet" BackgroundColor="LightBlue"/>
             <Button Text="Close" Clicked="ClosePopup" BackgroundColor="LightCoral"/>
         </HorizontalStackLayout>
+
     </VerticalStackLayout>
 </toolkit:Popup>

@@ -1,11 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="CritterCare.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CritterCare"
-    Shell.FlyoutBehavior="Flyout"
-    Title="CritterCare">
+<Shell 
+        x:Class="CritterCare.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:CritterCare"
+       FlyoutBehavior="Flyout"
+       Title="CritterCare"
+       BackgroundColor="{DynamicResource PageBackgroundColor}"
+       FlyoutBackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <!-- Customize Flyout Text Color -->
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Grid Padding="10">
+                <Label Text="{Binding Title}" 
+                       TextColor="{DynamicResource FlyoutTextColor}" 
+                       FontSize="18" />
+            </Grid>
+        </DataTemplate>
+    </Shell.ItemTemplate>
 
     <!-- Left Navigation Menu -->
     <FlyoutItem Title="Home">
@@ -21,3 +34,4 @@
     </FlyoutItem>
 
 </Shell>
+

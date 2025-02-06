@@ -13,4 +13,9 @@ public class Pet
     public string Species { get; set; } = "Doge Coin";  // Default value for Species
 
     public string? Breed { get; set; }
+
+    public double Weight { get; set; } = 0.0;  // Default value for Weight
+
+    [Ignore] // This prevents SQLite from storing the Age field in the database.
+    public int Age => (DateTime.Now.Year - BirthDate.Year - (DateTime.Now.DayOfYear < BirthDate.DayOfYear ? 1 : 0));
 }

@@ -9,10 +9,10 @@ public class DatabaseManager
     {
         var dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "mydatabase.db3");
         _database = new SQLiteConnection(dbPath);
-        _database.CreateTable<Pet>(); // Create the table if it doesn't exist
+        _database.CreateTable<Pet>(); // Ensure table is created
     }
 
-    public void InsertPet(Pet pet)  // Changed 'person' to 'pet' for consistency
+    public void InsertPet(Pet pet)
     {
         _database.Insert(pet);
     }
@@ -31,4 +31,3 @@ public class DatabaseManager
         }
     }
 }
-

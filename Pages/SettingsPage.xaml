@@ -4,14 +4,18 @@
              x:Class="CritterCare.SettingsPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <VerticalStackLayout Padding="20">
-        <Label Text="Settings" FontSize="24" HorizontalOptions="Center" />
+	<VerticalStackLayout Padding="20">
+		<Label Text="Settings" FontSize="24" TextColor="{DynamicResource TextColor}" HorizontalOptions="Center" />
 
-        <!-- Toggle for Dark Mode -->
-        <Switch x:Name="DarkModeSwitch" IsToggled="{Binding IsDarkMode}" />
-        <Label Text="Enable Dark Mode" HorizontalOptions="Start" />
+		<!-- Toggle for Dark Mode -->
+		<HorizontalStackLayout>
+			<Switch x:Name="DarkModeSwitch" IsToggled="{Binding IsDarkMode}" ThumbColor="{DynamicResource TextColor}"/>
+			<Label Text="Enable Dark Mode" TextColor="{DynamicResource TextColor}" HorizontalOptions="Start" />
+		</HorizontalStackLayout>
 
-        <!-- Save Button -->
-        <Button Text="Save Settings" Clicked="OnSaveSettingsClicked" />
-    </VerticalStackLayout>
+		<!-- Save Button -->
+		<Button Text="Save Settings" Clicked="OnSaveSettingsClicked"
+                TextColor="{DynamicResource TextColor}"
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}" />
+	</VerticalStackLayout>
 </ContentPage>

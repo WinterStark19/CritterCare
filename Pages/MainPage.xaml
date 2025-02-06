@@ -1,38 +1,40 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CritterCare.MainPage">
+             x:Class="CritterCare.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
 
-            <!-- Welcome Text -->
             <Label Text="Welcome to Critter Care!"
                    FontSize="24"
                    FontAttributes="Bold"
+                   TextColor="{DynamicResource TextColor}"
                    HorizontalOptions="Center" />
 
             <Button Text="Add Pet"
                 Clicked="OpenAddPetPopup"
-                BackgroundColor="LightBlue"
+                BackgroundColor="#2196F3"
+                TextColor="{DynamicResource TextColor}"
                 Padding="10"
                 HorizontalOptions="Center"/>
 
-            <!-- List of Pets (Placeholder) -->
-            <Label Text="Your Pets:"
+                <Label Text="Your Pets:"
                    FontSize="18"
                    FontAttributes="Bold"
+                   TextColor="{DynamicResource TextColor}"
                    Margin="0,10,0,5" />
 
-            <CollectionView x:Name="PetListView" SelectionMode="Single" SelectionChanged="OnPetSelected">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Padding="10" Margin="5" BorderColor="Gray">
-                            <Label Text="{Binding Name}" FontSize="16"/>
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                <CollectionView x:Name="PetListView" SelectionMode="Single" SelectionChanged="OnPetSelected">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Padding="10" Margin="5" BorderColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource PageBackgroundColor}">
+                                <Label Text="{Binding Name}" FontSize="16" TextColor="{DynamicResource TextColor}"/>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
+

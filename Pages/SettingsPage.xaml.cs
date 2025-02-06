@@ -5,24 +5,28 @@ namespace CritterCare
 {
     public partial class SettingsPage : ContentPage
     {
-        // Default to false (light mode)
         public bool IsDarkMode
         {
-            get => Preferences.Get("DarkMode", false);  // Default is false
-            set => Preferences.Set("DarkMode", value);   // Save setting
+            get => Preferences.Get("DarkMode", false);
+            set
+            {
+                Preferences.Set("DarkMode", value);
+                ((App)Application.Current).ApplyTheme(); // Notify App to apply theme
+            }
         }
 
         public SettingsPage()
         {
             InitializeComponent();
-            BindingContext = this; 
+            BindingContext = this;
         }
 
-        // Handle the save button click event
         private void OnSaveSettingsClicked(object sender, EventArgs e)
         {
-            // Dark mode is automatically saved by the property setter
+            ((App)Application.Current).ApplyTheme(); // Ensure App level theme is applied
             DisplayAlert("Settings Changed", "Your settings have been saved.", "OK");
         }
     }
 }
+
+

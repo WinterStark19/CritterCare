@@ -13,7 +13,6 @@ public partial class MainPage : ContentPage
         _databaseManager = new DatabaseManager();
         LoadPetData(); // Load pets into the UI
 
-        Routing.RegisterRoute(nameof(AddPetPopup), typeof(AddPetPopup));
     }
 
     private void OpenAddPetPopup(object sender, EventArgs e)
