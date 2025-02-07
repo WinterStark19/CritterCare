@@ -8,11 +8,11 @@
 
     <VerticalStackLayout Padding="20" BackgroundColor="White" Spacing="15">
 
-        <!-- Name  -->
+        <!-- Name -->
         <Label Text="Name" />
         <Entry x:Name="NameEntry" Text="Nameless One" />
 
-        <!-- Species & Breed  -->
+        <!-- Species & Breed -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
                 <Label Text="Species" />
@@ -25,11 +25,11 @@
             </VerticalStackLayout>
         </Grid>
 
-        <!-- Birthdate & Age  -->
+        <!-- Birthdate & Age -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
                 <Label Text="Birth Date" />
-                <DatePicker x:Name="BirthDatePicker" />
+                <DatePicker x:Name="BirthDatePicker" DateSelected="OnBirthDateChanged" />
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="1">
@@ -38,11 +38,11 @@
             </VerticalStackLayout>
         </Grid>
 
-        <!-- Weight  -->
+        <!-- Weight -->
         <Label Text="Weight (lbs)" />
         <Entry x:Name="WeightEntry" Keyboard="Numeric" />
 
-        <!-- Buttons  -->
+        <!-- Buttons -->
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
             <Button Text="Save Pet" Clicked="OnSavePetClicked"/>
             <Button Text="Close" Clicked="ClosePopup"/>
@@ -51,3 +51,4 @@
     </VerticalStackLayout>
 
 </toolkit:Popup>
+

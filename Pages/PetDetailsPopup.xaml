@@ -8,39 +8,45 @@
 
         <!-- Name -->
         <Label Text="Name" />
-        <Entry x:Name="PetNameEntry" Text="{Binding Name}" IsReadOnly="True" Placeholder="Pet Name" />
+        <Entry x:Name="PetNameEntry" IsReadOnly="True" Placeholder="Pet Name" />
 
         <!-- Species & Breed -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
                 <Label Text="Species" />
-                <Entry x:Name="PetSpeciesEntry" Text="{Binding Species}" IsReadOnly="True" Placeholder="Species" />
+                <Entry x:Name="PetSpeciesEntry" IsReadOnly="True" Placeholder="Species" />
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="1">
                 <Label Text="Breed" />
-                <Entry x:Name="PetBreedEntry" Text="{Binding Breed}" IsReadOnly="True" Placeholder="Breed" />
+                <Entry x:Name="PetBreedEntry" IsReadOnly="True" Placeholder="Breed" />
             </VerticalStackLayout>
         </Grid>
 
-        <!-- Birthdate & Weight -->
+        <!-- Birthdate & Age -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
                 <Label Text="Birth Date" />
-                <DatePicker x:Name="PetBirthDatePicker" Date="{Binding BirthDate}" IsEnabled="False"/>
+                <DatePicker x:Name="PetBirthDatePicker" IsEnabled="False"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="1">
-                <Label Text="Weight (lbs)" />
-                <Entry x:Name="PetWeightEntry" Text="{Binding Weight}" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
+                <Label Text="Age" />
+                <Entry x:Name="AgeEntry" IsReadOnly="True" />
             </VerticalStackLayout>
         </Grid>
+
+        <!-- Weight -->
+        <Label Text="Weight (lbs)" />
+        <Entry x:Name="PetWeightEntry" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
 
         <!-- Buttons -->
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
             <Button Text="Edit" Clicked="EditPet" BackgroundColor="LightBlue"/>
+            <Button x:Name="SaveButton" Text="Save" Clicked="SavePet" BackgroundColor="LightGreen" IsVisible="False"/>
             <Button Text="Close" Clicked="ClosePopup" BackgroundColor="LightCoral"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>
 </toolkit:Popup>
+

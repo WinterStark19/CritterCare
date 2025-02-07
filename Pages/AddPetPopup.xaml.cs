@@ -29,7 +29,7 @@ public partial class AddPetPopup : Popup
         var newPet = new Pet
         {
             Name = name,
-            BirthDate = birthDate, 
+            BirthDate = birthDate,
             Species = species,
             Breed = breed,
             Weight = weight
@@ -40,9 +40,24 @@ public partial class AddPetPopup : Popup
         ClosePopup(sender, e);
     }
 
+    private void OnBirthDateChanged(object sender, DateChangedEventArgs e)
+    {
+        AgeEntry.Text = CalculateAge(BirthDatePicker.Date).ToString();
+    }
+
+    private int CalculateAge(DateTime birthDate)
+    {
+        int age = DateTime.Now.Year - birthDate.Year;
+        if (DateTime.Now < birthDate.AddYears(age))
+        {
+            age--;
+        }
+        return age;
+    }
 
     private void ClosePopup(object sender, EventArgs e)
     {
         Close();
     }
 }
+

@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using System.IO;
+using System.Collections.Generic;
 
 public class DatabaseManager
 {
@@ -22,6 +23,11 @@ public class DatabaseManager
         return _database.Table<Pet>().ToList();
     }
 
+    public void UpdatePet(Pet pet)
+    {
+        _database.Update(pet);
+    }
+
     public void DeletePet(int id)
     {
         var pet = _database.Find<Pet>(id);
@@ -31,3 +37,4 @@ public class DatabaseManager
         }
     }
 }
+
