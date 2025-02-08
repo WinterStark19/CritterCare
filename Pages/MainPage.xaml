@@ -14,7 +14,7 @@
 
             <Button Text="Add Pet"
                 Clicked="OpenAddPetPopup"
-                BackgroundColor="#2196F3"
+                BackgroundColor="{DynamicResource ButtonColor2}"
                 TextColor="{DynamicResource TextColor}"
                 Padding="10"
                 HorizontalOptions="Center"/>
@@ -28,7 +28,7 @@
                 <CollectionView x:Name="PetListView" SelectionMode="Single" SelectionChanged="OnPetSelected">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame Padding="10" Margin="5" BorderColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource PageBackgroundColor}">
+                            <Frame Padding="10" Margin="5" BorderColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor}">
                                 <Label Text="{Binding Name}" FontSize="16" TextColor="{DynamicResource TextColor}"/>
                             </Frame>
                         </DataTemplate>

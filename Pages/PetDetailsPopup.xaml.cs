@@ -26,7 +26,7 @@ namespace CritterCare
             // Set initial size based on the window dimensions
             var windowWidth = Application.Current.Windows[0].Width;
             var windowHeight = Application.Current.Windows[0].Height;
-            this.Size = new Size(windowWidth * 0.65, windowHeight * 0.65);
+            this.Size = new Size(windowWidth * 0.65, windowHeight * 0.8);
         }
 
         private void EditPet(object sender, EventArgs e)
