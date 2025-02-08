@@ -10,13 +10,13 @@
 
         <!-- Name -->
         <Label Text="Name" />
-        <Entry x:Name="NameEntry" Text="Nameless One" />
+        <Entry x:Name="NameEntry"/>
 
         <!-- Species & Breed -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
                 <Label Text="Species" />
-                <Entry x:Name="SpeciesEntry" Text="Doge Coin" />
+                <Entry x:Name="SpeciesEntry"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="1">
@@ -32,9 +32,9 @@
                 <DatePicker x:Name="BirthDatePicker" DateSelected="OnBirthDateChanged" />
             </VerticalStackLayout>
 
-            <VerticalStackLayout Grid.Column="1">
+            <VerticalStackLayout Grid.Column="1" IsVisible="False">
                 <Label Text="Age" />
-                <Entry x:Name="AgeEntry" IsReadOnly="True" />
+                <Entry x:Name="AgeEntry" IsReadOnly="True"/>
             </VerticalStackLayout>
         </Grid>
 

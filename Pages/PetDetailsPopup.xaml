@@ -30,7 +30,7 @@
                 <DatePicker x:Name="PetBirthDatePicker" IsEnabled="False"/>
             </VerticalStackLayout>
 
-            <VerticalStackLayout Grid.Column="1">
+            <VerticalStackLayout Grid.Column="1" x:Name="AgeCard">
                 <Label Text="Age" />
                 <Entry x:Name="AgeEntry" IsReadOnly="True" />
             </VerticalStackLayout>

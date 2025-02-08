@@ -40,6 +40,7 @@ namespace CritterCare
 
             // Ensure Age remains read-only
             AgeEntry.IsReadOnly = true;
+            AgeCard.IsVisible = false;
 
             SaveButton.IsVisible = true; // Show the save button when editing
         }
