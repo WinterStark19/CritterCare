@@ -5,7 +5,6 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-
             <Label Text="Welcome to Critter Care!"
                    FontSize="24"
                    FontAttributes="Bold"
@@ -19,22 +18,29 @@
                 Padding="10"
                 HorizontalOptions="Center"/>
 
-                <Label Text="Your Pets:"
+            <Label Text="Your Pets:"
                    FontSize="18"
                    FontAttributes="Bold"
                    TextColor="{DynamicResource TextColor}"
                    Margin="0,10,0,5" />
 
-                <CollectionView x:Name="PetListView" SelectionMode="Single" SelectionChanged="OnPetSelected">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Frame Padding="10" Margin="5" BorderColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor}">
-                                <Label Text="{Binding Name}" FontSize="16" TextColor="{DynamicResource TextColor}"/>
-                            </Frame>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
+            <!-- CollectionView -->
+            <CollectionView x:Name="PetListView" SelectionMode="Single" SelectionChanged="OnPetSelected">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5" BorderColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor}">
+                            <StackLayout>
+                                <!-- Bind ImageSource property -->
+                                <Image Source="{Binding ImageSource}"
+                                       HeightRequest="100" 
+                                       WidthRequest="100" 
+                                       Aspect="AspectFill" />
+                                <Label Text="{Binding Name}" FontSize="16" TextColor="{DynamicResource TextColor}" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
-
