@@ -47,9 +47,22 @@ namespace CritterCare
             var button = (Button)sender;
             var petToDelete = (Pet)button.CommandParameter;
 
-            _databaseManager.DeletePet(petToDelete.Id); // Assuming `Id` is the primary key or unique identifier for a pet
+            // Create and show the confirmation popup
+            var popup = new ConfirmDeletePopup(petToDelete.Name);
 
-            LoadPetData(); // Reload the pet data to update the UI
+            // Subscribe to the event for when the user makes a decision
+            popup.DeletionConfirmed += (s, isConfirmed) =>
+            {
+                if (isConfirmed)
+                {
+                    // Proceed with deletion
+                    _databaseManager.DeletePet(petToDelete.Id);
+                    LoadPetData(); // Reload the pet data to update the UI
+                }
+            };
+
+            // Show the confirmation popup
+            await this.ShowPopupAsync(popup);
         }
 
         private async void OnManageAppointmentsClicked(object sender, EventArgs e)
