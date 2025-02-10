@@ -36,33 +36,33 @@ namespace CritterCare
             PetListView.ItemsSource = pets;
         }
 
-        //private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
-        //{
-        //    // Ensure that a pet is selected
-        //    if (e.CurrentSelection.Count > 0)
-        //    {
-        //        var selectedPet = e.CurrentSelection[0] as Pet;
-        //        if (selectedPet != null)
-        //        {
-        //            // Show the PetDetailsPopup with the selected pet's details
-        //            var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
-        //            await this.ShowPopupAsync(petDetailsPopup);
-        //        }
-        //    }
-        //}
         private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
         {
-            // pet is selected
+            // Ensure that a pet is selected
             if (e.CurrentSelection.Count > 0)
             {
                 var selectedPet = e.CurrentSelection[0] as Pet;
                 if (selectedPet != null)
                 {
-                   
-                    await Navigation.PushAsync(new PetDetailsPage(selectedPet));
+                    // Show the PetDetailsPopup with the selected pet's details
+                    var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
+                    await this.ShowPopupAsync(petDetailsPopup);
                 }
             }
         }
+        //private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
+        //{
+        //    // pet is selected
+        //    if (e.CurrentSelection.Count > 0)
+        //    {
+        //        var selectedPet = e.CurrentSelection[0] as Pet;
+        //        if (selectedPet != null)
+        //        {
+
+        //            await Navigation.PushAsync(new PetDetailsPage(selectedPet));
+        //        }
+        //    }
+        //}
 
         // Method to handle the delete button click
         private void OnDeletePetClicked(object sender, EventArgs e)
