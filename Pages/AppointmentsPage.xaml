@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CritterCare.AppointmentsPage"
+             Title="Appointments">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Upcoming Appointments" FontAttributes="Bold" FontSize="18"/>
+
+        <ListView x:Name="AppointmentListView" HeightRequest="150">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" Detail="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Add Appointment" Clicked="OnAddAppointmentClicked"/>
+    </VerticalStackLayout>
+</ContentPage>
+

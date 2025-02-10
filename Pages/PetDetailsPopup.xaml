@@ -44,9 +44,8 @@
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
             <Button Text="Edit" Clicked="EditPet" BackgroundColor="LightBlue"/>
             <Button x:Name="SaveButton" Text="Save" Clicked="SavePet" BackgroundColor="LightGreen" IsVisible="False"/>
-            <Button Text="Close" Clicked="ClosePopup" BackgroundColor="LightCoral"/>
+            <Button Text="Cancel" Clicked="ClosePopup" BackgroundColor="LightCoral"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>
 </toolkit:Popup>
-

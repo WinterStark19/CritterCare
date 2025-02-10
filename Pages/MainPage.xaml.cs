@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 using System;
-using System.Linq;
 
 namespace CritterCare
 {
@@ -23,68 +22,57 @@ namespace CritterCare
 
         private void LoadPetData()
         {
-            // Fetch pets from the database
             var pets = _databaseManager.GetPets();
-
-            // Convert the byte array for each pet image into ImageSource
             foreach (var pet in pets)
             {
                 pet.ImageSource = ConvertByteArrayToImageSource(pet.Image);
             }
-
-            // Bind the fetched data to the CollectionView
             PetListView.ItemsSource = pets;
         }
 
         private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
         {
-            // Ensure that a pet is selected
             if (e.CurrentSelection.Count > 0)
             {
                 var selectedPet = e.CurrentSelection[0] as Pet;
                 if (selectedPet != null)
                 {
-                    // Show the PetDetailsPopup with the selected pet's details
                     var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
                     await this.ShowPopupAsync(petDetailsPopup);
+                    PetListView.SelectedItem = null; // Clear selection
                 }
             }
         }
-        //private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
-        //{
-        //    // pet is selected
-        //    if (e.CurrentSelection.Count > 0)
-        //    {
-        //        var selectedPet = e.CurrentSelection[0] as Pet;
-        //        if (selectedPet != null)
-        //        {
-
-        //            await Navigation.PushAsync(new PetDetailsPage(selectedPet));
-        //        }
-        //    }
-        //}
 
         // Method to handle the delete button click
         private void OnDeletePetClicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var petToDelete = (Pet)button.CommandParameter;
-
-            // Call the method in DatabaseManager to delete the pet
-            _databaseManager.DeletePet(petToDelete.Id);  // Assuming `Id` is the primary key or unique identifier for a pet
-
-            // Reload the pet data to update the UI
+            _databaseManager.DeletePet(petToDelete.Id);
             LoadPetData();
         }
 
-        // Method to convert byte[] to ImageSource
         private ImageSource ConvertByteArrayToImageSource(byte[] byteArray)
         {
             if (byteArray != null && byteArray.Length > 0)
             {
-                return ImageSource.FromStream(() => new MemoryStream(byteArray));
+                return ImageSource.FromStream(() => new System.IO.MemoryStream(byteArray));
             }
             return ImageSource.FromFile("default_dog.jpg"); // Fallback image if byte array is null or empty
         }
+
+        // Navigate to AppointmentsPage
+        private async void OnManageAppointmentsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AppointmentsPage());
+        }
+
+        // Navigate to MedicationsPage
+        private async void OnManageMedicationsClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new MedicationsPage());
+        }
     }
 }
+

@@ -30,15 +30,10 @@
                     <DataTemplate>
                         <Frame Padding="10" Margin="5" BorderColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor}">
                             <StackLayout>
-                                <!-- Make the image circular by setting CornerRadius on the Frame wrapping it -->
                                 <Frame Padding="0" BorderColor="Transparent" BackgroundColor="Transparent" CornerRadius="50" HeightRequest="100" WidthRequest="100">
-                                    <Image Source="{Binding ImageSource}"
-                                           HeightRequest="100" 
-                                           WidthRequest="100" 
-                                           Aspect="AspectFill"/>
+                                    <Image Source="{Binding ImageSource}" HeightRequest="100" WidthRequest="100" Aspect="AspectFill"/>
                                 </Frame>
                                 <Label Text="{Binding Name}" FontSize="16" TextColor="{DynamicResource TextColor}" />
-
                                 <!-- Delete Button -->
                                 <Button Text="Delete"
                                         BackgroundColor="Red"
@@ -50,6 +45,21 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <!-- Navigation Buttons for Appointments and Medications -->
+            <Button Text="Manage Appointments"
+                    Clicked="OnManageAppointmentsClicked"
+                    BackgroundColor="{DynamicResource ButtonColor2}"
+                    TextColor="{DynamicResource TextColor}"
+                    Padding="10"
+                    HorizontalOptions="Center"/>
+
+            <Button Text="Manage Medications"
+                    Clicked="OnManageMedicationsClicked"
+                    BackgroundColor="{DynamicResource ButtonColor2}"
+                    TextColor="{DynamicResource TextColor}"
+                    Padding="10"
+                    HorizontalOptions="Center"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
