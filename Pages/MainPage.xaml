@@ -12,11 +12,11 @@
                    HorizontalOptions="Center" />
 
             <Button Text="Add Pet"
-                Clicked="OpenAddPetPopup"
-                BackgroundColor="{DynamicResource ButtonColor2}"
-                TextColor="{DynamicResource TextColor}"
-                Padding="10"
-                HorizontalOptions="Center"/>
+                    Clicked="OpenAddPetPopup"
+                    BackgroundColor="{DynamicResource ButtonColor2}"
+                    TextColor="{DynamicResource TextColor}"
+                    Padding="10"
+                    HorizontalOptions="Center"/>
 
             <Label Text="Your Pets:"
                    FontSize="18"
@@ -38,6 +38,13 @@
                                            Aspect="AspectFill"/>
                                 </Frame>
                                 <Label Text="{Binding Name}" FontSize="16" TextColor="{DynamicResource TextColor}" />
+
+                                <!-- Delete Button -->
+                                <Button Text="Delete"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        Clicked="OnDeletePetClicked"
+                                        CommandParameter="{Binding .}" />
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

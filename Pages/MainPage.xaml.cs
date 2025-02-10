@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Controls;
 using System;
-using System.IO;
 using System.Linq;
 
 namespace CritterCare
@@ -50,6 +49,19 @@ namespace CritterCare
                     await this.ShowPopupAsync(petDetailsPopup);
                 }
             }
+        }
+
+        // Method to handle the delete button click
+        private void OnDeletePetClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var petToDelete = (Pet)button.CommandParameter;
+
+            // Call the method in DatabaseManager to delete the pet
+            _databaseManager.DeletePet(petToDelete.Id);  // Assuming `Id` is the primary key or unique identifier for a pet
+
+            // Reload the pet data to update the UI
+            LoadPetData();
         }
 
         // Method to convert byte[] to ImageSource
