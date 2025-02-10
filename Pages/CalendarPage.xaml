@@ -1,15 +1,34 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:syncfusion="http://schemas.syncfusion.com/maui"
              x:Class="CritterCare.CalendarPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-	<VerticalStackLayout Padding="20">
-		<Label Text="Your Pet Care Calendar"
-               FontSize="24"
-               HorizontalOptions="Center"
-               TextColor="{DynamicResource TextColor}" />
+    <ScrollView>
+        <VerticalStackLayout Padding="20">
+            <Label x:Name="MonthLabel" 
+                   Text="Your Pet Care Calendar" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" 
+                   TextColor="{DynamicResource TextColor}" />
 
-		<syncfusion:SfScheduler x:Name="PetScheduler"/>
-	</VerticalStackLayout>
+            <!-- Navigation buttons for previous and next week -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                <Button Text="&lt;" Clicked="OnPreviousWeekClicked"/>
+                <Label x:Name="CurrentWeekLabel" 
+                       VerticalOptions="Center" 
+                       HorizontalOptions="Center" 
+                       FontSize="20" 
+                       TextColor="{DynamicResource TextColor}"/>
+                <Button Text=">" Clicked="OnNextWeekClicked"/>
+            </StackLayout>
+
+            <!-- Weekly Calendar Layout -->
+            <StackLayout x:Name="WeeklyCalendarLayout" Spacing="10">
+                <!-- This will be populated dynamically in code-behind -->
+            </StackLayout>
+
+            <Button Text="Show Appointments"
+                    Clicked="OnShowAppointmentsClicked"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -92,7 +92,10 @@
 	  <MauiXaml Update="Pages\CalendarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\MedicationPage.xaml">
+	  <MauiXaml Update="Pages\ConfirmDeletePopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\PetDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PetDetailsPopup.xaml">

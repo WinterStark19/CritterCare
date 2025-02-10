@@ -30,26 +30,41 @@ namespace CritterCare
             PetListView.ItemsSource = pets;
         }
 
-        private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
+        private async void OnPetDetailsClicked(object sender, EventArgs e)
         {
-            if (e.CurrentSelection.Count > 0)
+            // Get the "Details" button that was clicked
+            var button = (Button)sender;
+
+            // Get the selected pet from the CommandParameter (bound to the pet object)
+            var selectedPet = button.CommandParameter as Pet;
+
+            // Ensure that the pet object is valid
+            if (selectedPet != null)
             {
-                var selectedPet = e.CurrentSelection[0] as Pet;
-                if (selectedPet != null)
-                {
-                    var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
-                    await this.ShowPopupAsync(petDetailsPopup);
-                    PetListView.SelectedItem = null; // Clear selection
-                }
+                // Show the PetDetailsPopup with the selected pet's details
+                var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
+                await this.ShowPopupAsync(petDetailsPopup);
             }
         }
+        //private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
+        //{
+        //    // pet is selected
+        //    if (e.CurrentSelection.Count > 0)
+        //    {
+        //        var selectedPet = e.CurrentSelection[0] as Pet;
+        //        if (selectedPet != null)
+        //        {
 
         // Method to handle the delete button click
-        private void OnDeletePetClicked(object sender, EventArgs e)
+        private async void OnDeletePetClicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var petToDelete = (Pet)button.CommandParameter;
-            _databaseManager.DeletePet(petToDelete.Id);
+
+            // Call the method in DatabaseManager to delete the pet
+            _databaseManager.DeletePet(petToDelete.Id);  // Assuming `Id` is the primary key or unique identifier for a pet
+
+            // Reload the pet data to update the UI
             LoadPetData();
         }
 
