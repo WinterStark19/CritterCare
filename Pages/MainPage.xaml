@@ -30,11 +30,13 @@
                     <DataTemplate>
                         <Frame Padding="10" Margin="5" BorderColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor}">
                             <StackLayout>
-                                <!-- Bind ImageSource property -->
-                                <Image Source="{Binding ImageSource}"
-                                       HeightRequest="100" 
-                                       WidthRequest="100" 
-                                       Aspect="AspectFill" />
+                                <!-- Make the image circular by setting CornerRadius on the Frame wrapping it -->
+                                <Frame Padding="0" BorderColor="Transparent" BackgroundColor="Transparent" CornerRadius="50" HeightRequest="100" WidthRequest="100">
+                                    <Image Source="{Binding ImageSource}"
+                                           HeightRequest="100" 
+                                           WidthRequest="100" 
+                                           Aspect="AspectFill"/>
+                                </Frame>
                                 <Label Text="{Binding Name}" FontSize="16" TextColor="{DynamicResource TextColor}" />
                             </StackLayout>
                         </Frame>
