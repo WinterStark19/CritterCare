@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CritterCare.PetDetailsPage"
+             Title="Pet Details">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <!-- Navigation Buttons -->
+        <HorizontalStackLayout HorizontalOptions="Fill" Spacing="10">
+            <Button Text="Back to Home" Clicked="OnBackToHomeClicked"/>
+            <Button x:Name="EditButton" Text="Edit" Clicked="OnEditClicked"/>
+            <Button x:Name="SaveButton" Text="Save" Clicked="OnSaveClicked" IsVisible="False"/>
+        </HorizontalStackLayout>
+
+        <!-- Pet Details -->
+        <Label Text="Name"/>
+        <Entry x:Name="PetNameEntry" IsReadOnly="True"/>
+
+        <Label Text="Species"/>
+        <Entry x:Name="PetSpeciesEntry" IsReadOnly="True"/>
+
+        <Label Text="Breed"/>
+        <Entry x:Name="PetBreedEntry" IsReadOnly="True"/>
+
+        <Label Text="Birth Date"/>
+        <DatePicker x:Name="PetBirthDatePicker" IsEnabled="False"/>
+
+        <Label Text="Age"/>
+        <Entry x:Name="PetAgeEntry" IsReadOnly="True"/>
+
+        <Label Text="Weight (lbs)"/>
+        <Entry x:Name="PetWeightEntry" Keyboard="Numeric" IsReadOnly="True"/>
+
+        <!-- Appointments Section -->
+        <Label Text="Upcoming Appointments" FontAttributes="Bold"/>
+        <ListView x:Name="AppointmentListView" HeightRequest="150">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Date}" Detail="{Binding Description}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!-- Add label to display message when no appointments -->
+        <Label x:Name="NoAppointmentsLabel" Text="No appointments available." IsVisible="False" HorizontalOptions="Center"/>
+        <!--<Button Text="Add Appointment" Clicked="OnAddAppointmentClicked"/>-->
+
+        <!-- Medications Section -->
+        <Label Text="Medications" FontAttributes="Bold"/>
+        <ListView x:Name="MedicationListView" HeightRequest="150">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Name}" Detail="{Binding Dosage}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <!-- Add label to display message when no medications -->
+        <Label x:Name="NoMedicationsLabel" Text="No medications listed." IsVisible="False" HorizontalOptions="Center"/>
+        <!--<Button Text="Add Medication" Clicked="OnAddMedicationClicked"/>-->
+    </VerticalStackLayout>
+</ContentPage>
