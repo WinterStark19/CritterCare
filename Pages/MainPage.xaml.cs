@@ -65,16 +65,24 @@ namespace CritterCare
         //}
 
         // Method to handle the delete button click
-        private void OnDeletePetClicked(object sender, EventArgs e)
+        private async void OnDeletePetClicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var petToDelete = (Pet)button.CommandParameter;
 
-            // Call the method in DatabaseManager to delete the pet
-            _databaseManager.DeletePet(petToDelete.Id);  // Assuming `Id` is the primary key or unique identifier for a pet
+            // Create and show the confirmation popup
+            var confirmDeletePopup = new ConfirmDeletePopup(petToDelete.Name);
+            confirmDeletePopup.DeletionConfirmed += (sender, isConfirmed) =>
+            {
+                if (isConfirmed)
+                {
+                    // If user clicked "Yes", delete the pet
+                    _databaseManager.DeletePet(petToDelete.Id);  // Assuming `Id` is the primary key or unique identifier for a pet
+                    LoadPetData();  // Reload the pet data to update the UI
+                }
+            };
 
-            // Reload the pet data to update the UI
-            LoadPetData();
+            await this.ShowPopupAsync(confirmDeletePopup);
         }
 
         // Method to convert byte[] to ImageSource
