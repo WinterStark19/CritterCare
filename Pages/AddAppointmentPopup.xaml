@@ -8,15 +8,15 @@
 
 		<!-- Title -->
 		<Label Text="Title" />
-		<Entry x:Name="AppointmentTitleEntry" Placeholder="Appointment Title" />
+		<Entry x:Name="TitleEntry" Placeholder="Appointment Title" />
 
 		<!-- Date -->
 		<Label Text="Date" />
-		<DatePicker x:Name="AppointmentDatePicker" />
+		<DatePicker x:Name="DatePicker" />
 
 		<!-- Notes -->
 		<Label Text="Notes" />
-		<Editor x:Name="AppointmentNotesEditor" Placeholder="Appointment Notes" />
+		<Editor x:Name="NotesEditor" Placeholder="Appointment Notes" />
 
 		<!-- Buttons -->
 		<HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">

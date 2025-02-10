@@ -8,20 +8,20 @@
 
         <!-- Name -->
         <Label Text="Medication Name" />
-        <Entry x:Name="MedicationNameEntry" Placeholder="Medication Name" />
+        <Entry x:Name="NameEntry" Placeholder="Medication Name" />
 
         <!-- Dosage -->
         <Label Text="Dosage" />
-        <Entry x:Name="MedicationDosageEntry" Placeholder="Dosage" Keyboard="Numeric"/>
+        <Entry x:Name="DosageEntry" Placeholder="Dosage" Keyboard="Numeric"/>
 
         <!-- Frequency -->
         <Label Text="Frequency" />
-        <Entry x:Name="MedicationFrequencyEntry" Placeholder="Frequency" />
+        <Entry x:Name="FrequencyEntry" Placeholder="Frequency" />
 
         <!-- Buttons -->
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
-            <Button Text="Save" Clicked="SaveMedication" BackgroundColor="LightGreen"/>
-            <Button Text="Cancel" Clicked="ClosePopup" BackgroundColor="LightCoral"/>
+            <Button Text="Save" Clicked="OnSaveMedicationClicked" BackgroundColor="LightGreen"/>
+            <Button Text="Cancel" Clicked="OnCancelClicked" BackgroundColor="LightCoral"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>

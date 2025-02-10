@@ -32,40 +32,46 @@ namespace CritterCare
 
         private async void OnPetDetailsClicked(object sender, EventArgs e)
         {
-            // Get the "Details" button that was clicked
             var button = (Button)sender;
-
-            // Get the selected pet from the CommandParameter (bound to the pet object)
             var selectedPet = button.CommandParameter as Pet;
 
-            // Ensure that the pet object is valid
             if (selectedPet != null)
             {
-                // Show the PetDetailsPopup with the selected pet's details
                 var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
                 await this.ShowPopupAsync(petDetailsPopup);
             }
         }
-        //private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
-        //{
-        //    // pet is selected
-        //    if (e.CurrentSelection.Count > 0)
-        //    {
-        //        var selectedPet = e.CurrentSelection[0] as Pet;
-        //        if (selectedPet != null)
-        //        {
 
-        // Method to handle the delete button click
         private async void OnDeletePetClicked(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var petToDelete = (Pet)button.CommandParameter;
 
-            // Call the method in DatabaseManager to delete the pet
-            _databaseManager.DeletePet(petToDelete.Id);  // Assuming `Id` is the primary key or unique identifier for a pet
+            _databaseManager.DeletePet(petToDelete.Id); // Assuming `Id` is the primary key or unique identifier for a pet
 
-            // Reload the pet data to update the UI
-            LoadPetData();
+            LoadPetData(); // Reload the pet data to update the UI
+        }
+
+        private async void OnManageAppointmentsClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var selectedPet = button.CommandParameter as Pet;
+
+            if (selectedPet != null)
+            {
+                await Navigation.PushAsync(new AppointmentsPage(selectedPet.Id)); // Pass the selected pet ID
+            }
+        }
+
+        private async void OnManageMedicationsClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var selectedPet = button.CommandParameter as Pet;
+
+            if (selectedPet != null)
+            {
+                await Navigation.PushAsync(new MedicationsPage(selectedPet.Id)); // Pass the selected pet ID
+            }
         }
 
         private ImageSource ConvertByteArrayToImageSource(byte[] byteArray)
@@ -76,18 +82,5 @@ namespace CritterCare
             }
             return ImageSource.FromFile("default_dog.jpg"); // Fallback image if byte array is null or empty
         }
-
-        // Navigate to AppointmentsPage
-        private async void OnManageAppointmentsClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new AppointmentsPage());
-        }
-
-        // Navigate to MedicationsPage
-        private async void OnManageMedicationsClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new MedicationsPage());
-        }
     }
 }
-
