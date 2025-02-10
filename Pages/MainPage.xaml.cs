@@ -36,18 +36,20 @@ namespace CritterCare
             PetListView.ItemsSource = pets;
         }
 
-        private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
+        private async void OnPetDetailsClicked(object sender, EventArgs e)
         {
-            // Ensure that a pet is selected
-            if (e.CurrentSelection.Count > 0)
+            // Get the "Details" button that was clicked
+            var button = (Button)sender;
+
+            // Get the selected pet from the CommandParameter (bound to the pet object)
+            var selectedPet = button.CommandParameter as Pet;
+
+            // Ensure that the pet object is valid
+            if (selectedPet != null)
             {
-                var selectedPet = e.CurrentSelection[0] as Pet;
-                if (selectedPet != null)
-                {
-                    // Show the PetDetailsPopup with the selected pet's details
-                    var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
-                    await this.ShowPopupAsync(petDetailsPopup);
-                }
+                // Show the PetDetailsPopup with the selected pet's details
+                var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
+                await this.ShowPopupAsync(petDetailsPopup);
             }
         }
         //private async void OnPetSelected(object sender, SelectionChangedEventArgs e)
