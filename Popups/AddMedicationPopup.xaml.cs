@@ -16,6 +16,11 @@ namespace CritterCare
             _databaseManager = new DatabaseManager();
             _petId = petId;
             _reloadMedications = reloadMedications;
+
+            // Set initial size based on the window dimensions
+            var windowWidth = Application.Current.Windows[0].Width;
+            var windowHeight = Application.Current.Windows[0].Height;
+            this.Size = new Size(windowWidth * 0.5, windowHeight * 0.5);
         }
 
         private void OnSaveMedicationClicked(object sender, EventArgs e)

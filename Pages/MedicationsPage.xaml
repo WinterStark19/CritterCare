@@ -2,45 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritterCare.MedicationsPage"
-             Title="Medications">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-	<VerticalStackLayout Padding="20" Spacing="15">
-		<Label Text="Medications" FontAttributes="Bold" FontSize="18" />
+	<ScrollView>
+		<VerticalStackLayout Padding="20" Spacing="15">
+			<Label Text="Your Pet's Medications"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource TextColor}" />
 
-		<ListView x:Name="MedicationListView" HeightRequest="150">
-			<ListView.ItemTemplate>
-				<DataTemplate>
-					<ViewCell>
-						<StackLayout Padding="10" Orientation="Vertical">
-							<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-								<!-- Label for Name -->
-								<Label Text="Name:" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="100" />
+			<ListView x:Name="MedicationListView" HeightRequest="200"
+                      BackgroundColor="{DynamicResource PageBackgroundColor}">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Frame Padding="10" Margin="5" CornerRadius="10" BackgroundColor="{DynamicResource CardBackgroundColor}">
+								<VerticalStackLayout>
+									<StackLayout Orientation="Horizontal">
+										<Label Text="Name:  " FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+										<Label Text=" {Binding Name}" TextColor="{DynamicResource TextColor}"/>
+									</StackLayout>
+									<StackLayout Orientation="Horizontal">
+										<Label Text="Dosage:  " FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+										<Label Text=" {Binding Dosage}" TextColor="{DynamicResource TextColor}"/>
+									</StackLayout>
+									<StackLayout Orientation="Horizontal">
+										<Label Text="Frequency:  " FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+										<Label Text=" {Binding Frequency}" TextColor="{DynamicResource TextColor}"/>
+									</StackLayout>
+								</VerticalStackLayout>
+							</Frame>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
 
-								<!-- Name Value -->
-								<Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="Start" />
-							</StackLayout>
-
-							<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-								<!-- Label for Dosage -->
-								<Label Text="Dosage:" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="100" />
-
-								<!-- Dosage Value -->
-								<Label Text="{Binding Dosage}" VerticalOptions="Center" HorizontalOptions="Start" />
-							</StackLayout>
-
-							<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-								<!-- Label for Frequency -->
-								<Label Text="Frequency:" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="End" WidthRequest="100" />
-
-								<!-- Frequency Value -->
-								<Label Text="{Binding Frequency}" VerticalOptions="Center" HorizontalOptions="Start" />
-							</StackLayout>
-						</StackLayout>
-					</ViewCell>
-				</DataTemplate>
-			</ListView.ItemTemplate>
-		</ListView>
-
-		<Button Text="Add Medication" Clicked="OnAddMedicationClicked"/>
-	</VerticalStackLayout>
+			<Button Text="Add Medication"
+                    Clicked="OnAddMedicationClicked"
+                    BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                    TextColor="{DynamicResource ButtonTextColor}"/>
+		</VerticalStackLayout>
+	</ScrollView>
 </ContentPage>

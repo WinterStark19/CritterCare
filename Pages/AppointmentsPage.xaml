@@ -2,20 +2,50 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritterCare.AppointmentsPage"
-             Title="Appointments">
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
 
-    <VerticalStackLayout Padding="20" Spacing="15">
-        <Label Text="Upcoming Appointments" FontAttributes="Bold" FontSize="18"/>
+	<VerticalStackLayout Padding="20" Spacing="15">
+		<Label Text="Upcoming Appointments"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource TextColor}" />
 
-        <ListView x:Name="AppointmentListView" HeightRequest="150">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell Text="{Binding Title}" Detail="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+		<ListView x:Name="AppointmentListView"
+                  HeightRequest="200"
+                  BackgroundColor="{DynamicResource ListBackgroundColor}">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Frame Padding="10"
+                               Margin="5"
+                               CornerRadius="10"
+                               BackgroundColor="{DynamicResource CardBackgroundColor}">
+							<StackLayout>
+								<Label Text="{Binding Title}"
+                                       FontSize="18"
+                                       TextColor="{DynamicResource TextColor}"
+                                       FontAttributes="Bold"/>
+								<Label Text="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}"
+                                       FontSize="16"
+                                       TextColor="{DynamicResource SecondaryTextColor}"/>
+								<Label Text="{Binding Notes}"
+                                       FontSize="16"
+                                       TextColor="{DynamicResource SecondaryTextColor}"/>
+							</StackLayout>
+						</Frame>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
 
-        <Button Text="Add Appointment" Clicked="OnAddAppointmentClicked"/>
-    </VerticalStackLayout>
+		<Button Text="Add Appointment"
+                Clicked="OnAddAppointmentClicked"
+                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
+                TextColor="{DynamicResource ButtonTextColor}"
+                CornerRadius="10"
+                Padding="10"/>
+	</VerticalStackLayout>
 </ContentPage>
+
 

@@ -15,7 +15,7 @@ public partial class AddPetPopup : Popup
 
         var windowWidth = Application.Current.Windows[0].Width;
         var windowHeight = Application.Current.Windows[0].Height;
-        this.Size = new Size(windowWidth * 0.65, windowHeight * 0.8);
+        this.Size = new Size(windowWidth * 0.65, windowHeight * 0.5);
     }
 
     private void OnSavePetClicked(object sender, EventArgs e)

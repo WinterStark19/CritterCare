@@ -68,7 +68,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\AddPetPopup.xaml.cs">
+	  <Compile Update="Popups\AddPetPopup.xaml.cs">
 	    <DependentUpon>AddPetPopup.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\SettingsPage.xaml.cs">
@@ -77,13 +77,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Pages\AddAppointmentPopup.xaml">
+	  <MauiXaml Update="Popups\AddAppointmentPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\AddMedicationPopup.xaml">
+	  <MauiXaml Update="Popups\AddMedicationPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\AddPetPopup.xaml">
+	  <MauiXaml Update="Popups\AddPetPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\AppointmentsPage.xaml">
@@ -92,13 +92,13 @@
 	  <MauiXaml Update="Pages\CalendarPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\ConfirmDeletePopup.xaml">
+	  <MauiXaml Update="Popups\ConfirmDeletePopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\PetDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\PetDetailsPopup.xaml">
+	  <MauiXaml Update="Popups\PetDetailsPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SettingsPage.xaml">
