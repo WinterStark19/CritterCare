@@ -2,7 +2,7 @@ using CommunityToolkit.Maui.Views;
 
 namespace CritterCare
 {
-    public partial class PetDetailsPopup : Popup
+    public partial class PetDetailsPopup : ContentPage
     {
         private readonly Pet _pet;
         private readonly Action _reloadDataCallback;
@@ -26,7 +26,6 @@ namespace CritterCare
             // Set initial size based on the window dimensions
             var windowWidth = Application.Current.Windows[0].Width;
             var windowHeight = Application.Current.Windows[0].Height;
-            this.Size = new Size(windowWidth * 0.65, windowHeight * 0.65);
         }
 
         private void EditPet(object sender, EventArgs e)
@@ -55,12 +54,22 @@ namespace CritterCare
 
             _databaseManager.UpdatePet(_pet);
             _reloadDataCallback?.Invoke();
-            Close();
         }
 
         private void ClosePopup(object sender, EventArgs e)
         {
-            Close();
+            // Enable editing of specific fields
+            PetNameEntry.IsReadOnly = true;
+            PetSpeciesEntry.IsReadOnly = true;
+            PetBreedEntry.IsReadOnly = true;
+            PetWeightEntry.IsReadOnly = true;
+            PetBirthDatePicker.IsEnabled = false;
+
+            // Ensure Age remains read-only
+            AgeEntry.IsReadOnly = false;
+            AgeCard.IsVisible = true;
+
+            SaveButton.IsVisible = false; // Show the save button when editing
         }
 
         private int CalculateAge(DateTime birthDate)
