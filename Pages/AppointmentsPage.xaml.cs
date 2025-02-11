@@ -29,6 +29,28 @@ namespace CritterCare
             // Show popup to add a new appointment
             this.ShowPopup(new AddAppointmentPopup(_petId, LoadAppointments));
         }
+
+        private async void OnDeleteAppointmentClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var appointmentToDelete = (Appointment)button.CommandParameter;
+
+            // Create and show the confirmation popup
+            var popup = new ConfirmDeletePopup(appointmentToDelete.Title);
+
+            popup.DeletionConfirmed += (s, isConfirmed) =>
+            {
+                if (isConfirmed)
+                {
+                    _databaseManager.DeleteAppointment(appointmentToDelete.Id);
+                    LoadAppointments(); // Reload the appointment data to update the UI
+                }
+            };
+
+            // Show the confirmation popup
+            await this.ShowPopupAsync(popup);
+        }
     }
 }
+
 

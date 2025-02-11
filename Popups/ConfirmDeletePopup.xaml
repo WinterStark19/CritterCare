@@ -8,7 +8,7 @@
 
     <Grid VerticalOptions="Center" HorizontalOptions="Center" Padding="20" BackgroundColor="White">
         <VerticalStackLayout Spacing="20" HorizontalOptions="Center" VerticalOptions="Center">
-            <Label Text="Are you sure you want to delete this pet?"
+            <Label Text="Are you sure you want to delete?"
                    FontSize="16"
                    HorizontalOptions="Center"
                    VerticalOptions="Center"

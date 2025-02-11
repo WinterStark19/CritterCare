@@ -71,9 +71,9 @@ public class DatabaseManager
         public int Id { get; set; }
         public int PetId { get; set; }
         public string Title { get; set; }
-        public DateTime Date { get; set; }  // This is the Date field we're referring to
+        public DateTime Date { get; set; }  
         public string Notes { get; set; }
-        public string PetName { get; set; }  // The name of the pet associated with the appointment
+        public string PetName { get; set; }  
     }
 }
 
@@ -81,7 +81,7 @@ public class Appointment
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
-    public int PetId { get; set; } // Foreign key
+    public int PetId { get; set; } 
     public string Title { get; set; }
     public DateTime Date { get; set; }
     public string Notes { get; set; }
