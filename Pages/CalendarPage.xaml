@@ -27,8 +27,6 @@
                 <!-- This will be populated dynamically in code-behind -->
             </StackLayout>
 
-            <Button Text="Show Appointments"
-                    Clicked="OnShowAppointmentsClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
