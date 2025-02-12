@@ -37,9 +37,7 @@ namespace CritterCare
 
             if (selectedPet != null)
             {
-                // Navigate to the PetDetailsPage with the selected pet
-                var petDetailsPopup = new PetDetailsPopup(selectedPet, LoadPetData);
-                await Navigation.PushAsync(petDetailsPopup); // Navigate to the full page
+                await Navigation.PushAsync(new PetDetailsPage(selectedPet)); // Pass the full object
             }
         }
 

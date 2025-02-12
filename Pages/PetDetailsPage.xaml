@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CritterCare.PetDetailsPopup"
+             x:Class="CritterCare.PetDetailsPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
     
     <VerticalStackLayout Padding="20" BackgroundColor="Blue" Spacing="15">
@@ -44,7 +44,7 @@
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
             <Button Text="Edit" Clicked="EditPet" BackgroundColor="LightBlue"/>
             <Button x:Name="SaveButton" Text="Save" Clicked="SavePet" BackgroundColor="LightGreen" IsVisible="False"/>
-            <Button Text="Cancel" Clicked="ClosePopup" BackgroundColor="LightCoral"/>
+            <Button Text="Cancel" Clicked="CancelEdit" BackgroundColor="LightCoral"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>

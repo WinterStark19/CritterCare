@@ -1,50 +1,45 @@
+using Microsoft.Maui.Controls;
+using System;
 using CommunityToolkit.Maui.Views;
 
 namespace CritterCare
 {
-    public partial class PetDetailsPopup : ContentPage
+    public partial class PetDetailsPage : ContentPage
     {
         private readonly Pet _pet;
-        private readonly Action _reloadDataCallback;
-        private readonly DatabaseManager _databaseManager; // Added database manager
+        private readonly DatabaseManager _databaseManager;
 
-        public PetDetailsPopup(Pet pet, Action reloadDataCallback)
+        public PetDetailsPage(Pet pet)
         {
             InitializeComponent();
             _pet = pet;
-            _reloadDataCallback = reloadDataCallback;
-            _databaseManager = new DatabaseManager(); // Initialize it
+            _databaseManager = new DatabaseManager();
 
-            // Set the pet details in the popup fields
+            // Populate UI fields with pet details
             PetNameEntry.Text = _pet.Name;
             PetSpeciesEntry.Text = _pet.Species;
             PetBreedEntry.Text = _pet.Breed;
             PetBirthDatePicker.Date = _pet.BirthDate;
             PetWeightEntry.Text = _pet.Weight.ToString();
             AgeEntry.Text = CalculateAge(_pet.BirthDate).ToString();
-
-            // Set initial size based on the window dimensions
-            var windowWidth = Application.Current.Windows[0].Width;
-            var windowHeight = Application.Current.Windows[0].Height;
         }
 
         private void EditPet(object sender, EventArgs e)
         {
-            // Enable editing of specific fields
+            // Enable editing
             PetNameEntry.IsReadOnly = false;
             PetSpeciesEntry.IsReadOnly = false;
             PetBreedEntry.IsReadOnly = false;
             PetWeightEntry.IsReadOnly = false;
             PetBirthDatePicker.IsEnabled = true;
 
-            // Ensure Age remains read-only
-            AgeEntry.IsReadOnly = true;
+            AgeEntry.IsReadOnly = true; // Age should always remain read-only
             AgeCard.IsVisible = false;
 
-            SaveButton.IsVisible = true; // Show the save button when editing
+            SaveButton.IsVisible = true; // Show Save button
         }
 
-        private void SavePet(object sender, EventArgs e)
+        private async void SavePet(object sender, EventArgs e)
         {
             _pet.Name = PetNameEntry.Text;
             _pet.Species = PetSpeciesEntry.Text;
@@ -53,23 +48,26 @@ namespace CritterCare
             _pet.Weight = double.TryParse(PetWeightEntry.Text, out double parsedWeight) ? parsedWeight : _pet.Weight;
 
             _databaseManager.UpdatePet(_pet);
-            _reloadDataCallback?.Invoke();
-        }
 
-        private void ClosePopup(object sender, EventArgs e)
-        {
-            // Enable editing of specific fields
+            // Disable editing after saving
             PetNameEntry.IsReadOnly = true;
             PetSpeciesEntry.IsReadOnly = true;
             PetBreedEntry.IsReadOnly = true;
             PetWeightEntry.IsReadOnly = true;
             PetBirthDatePicker.IsEnabled = false;
 
-            // Ensure Age remains read-only
-            AgeEntry.IsReadOnly = false;
+            AgeEntry.IsReadOnly = true;
             AgeCard.IsVisible = true;
 
-            SaveButton.IsVisible = false; // Show the save button when editing
+            SaveButton.IsVisible = false;
+
+            // Navigate back to the previous page
+            await Navigation.PopAsync();
+        }
+
+        private async void CancelEdit(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
 
         private int CalculateAge(DateTime birthDate)
@@ -83,3 +81,4 @@ namespace CritterCare
         }
     }
 }
+

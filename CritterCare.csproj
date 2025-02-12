@@ -74,6 +74,9 @@
 	  <Compile Update="Pages\SettingsPage.xaml.cs">
 	    <DependentUpon>SettingsPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\PetDetailsPage.xaml.cs">
+	    <DependentUpon>PetDetailsPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -98,7 +101,7 @@
 	  <MauiXaml Update="Pages\PetDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Popups\PetDetailsPopup.xaml">
+	  <MauiXaml Update="Pages\PetDetailsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SettingsPage.xaml">
