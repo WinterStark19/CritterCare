@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CritterCare.PetDetailsPage"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    
-    <VerticalStackLayout Padding="20" BackgroundColor="Blue" Spacing="15">
+
+    <VerticalStackLayout Padding="20" BackgroundColor="{DynamicResource PageBackgroundColor}" Spacing="15">
 
         <!-- Name -->
         <Label Text="Name" />
@@ -29,25 +29,25 @@
                 <Label Text="Birth Date" />
                 <DatePicker x:Name="PetBirthDatePicker" IsEnabled="False"/>
             </VerticalStackLayout>
-
             <VerticalStackLayout Grid.Column="1" x:Name="AgeCard">
                 <Label Text="Age" />
                 <Entry x:Name="AgeEntry" IsReadOnly="True" />
             </VerticalStackLayout>
         </Grid>
 
+
         <!-- Weight -->
         <Label Text="Weight (lbs)" />
         <Entry x:Name="PetWeightEntry" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
 
-        <Button Text="Select Image" Clicked="OnSelectImageClicked" BackgroundColor="LightSkyBlue"/>
+        <Button Text="Select Image" Clicked="OnSelectImageClicked" TextColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor2}"/>
         <Image x:Name="PetImage" HeightRequest="200" WidthRequest="200" />
 
         <!-- Buttons -->
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
-            <Button Text="Edit" Clicked="EditPet" BackgroundColor="LightBlue"/>
+            <Button Text="Edit" Clicked="EditPet" TextColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor2}"/>
             <Button x:Name="SaveButton" Text="Save" Clicked="SavePet" BackgroundColor="LightGreen" IsVisible="False"/>
-            <Button Text="Cancel" Clicked="CancelEdit" BackgroundColor="LightCoral"/>
+            <Button Text="Cancel" Clicked="CancelEdit" BackgroundColor="{DynamicResource DeleteButtonColor}"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>

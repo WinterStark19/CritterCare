@@ -13,8 +13,8 @@
         <!-- Add Appointment Button -->
         <Button Text="Add Appointment"
                 Clicked="OnAddAppointmentClicked"
-                BackgroundColor="{DynamicResource ButtonBackgroundColor}"
-                TextColor="{DynamicResource ButtonTextColor}"
+                BackgroundColor="{DynamicResource ButtonColor2}"
+                TextColor="{DynamicResource TextColor}"
                 CornerRadius="10"
                 Padding="10"
                 HorizontalOptions="Center"/>
@@ -29,7 +29,7 @@
                         <Frame Padding="10"
                                Margin="5"
                                CornerRadius="10"
-                               BackgroundColor="{DynamicResource CardBackgroundColor}">
+                               BackgroundColor="{DynamicResource PageForegroundColor}">
                             <VerticalStackLayout>
 
                                 <!-- Appointment Details -->
@@ -61,7 +61,7 @@
                                     <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand"/>
                                     <!-- Spacer -->
                                     <Button Text="Delete"
-                                            BackgroundColor="Red"
+                                            BackgroundColor="{DynamicResource DeleteButtonColor}"
                                             TextColor="White"
                                             Clicked="OnDeleteAppointmentClicked"
                                             CommandParameter="{Binding .}" />

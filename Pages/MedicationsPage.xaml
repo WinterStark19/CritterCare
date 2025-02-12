@@ -13,8 +13,8 @@
             <!-- Add Medication Button above the medication list -->
             <Button Text="Add Medication"
                     Clicked="OnAddMedicationClicked"
-                    BackgroundColor="{DynamicResource ButtonBackgroundColor}"
-                    TextColor="{DynamicResource ButtonTextColor}"
+                    BackgroundColor="{DynamicResource ButtonColor2}"
+                    TextColor="{DynamicResource TextColor}"
                     HorizontalOptions="Center" 
                     Padding="10" />
 
@@ -24,7 +24,7 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame Padding="10" Margin="5" CornerRadius="10" BackgroundColor="{DynamicResource CardBackgroundColor}">
+                            <Frame Padding="10" Margin="5" CornerRadius="10" BackgroundColor="{DynamicResource PageForegroundColor}">
                                 <VerticalStackLayout>
 
                                     <!-- Medication Details -->
@@ -49,7 +49,7 @@
                                         <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand"/>
                                         <!-- Spacer -->
                                         <Button Text="Delete" 
-                                                BackgroundColor="Red" 
+                                                BackgroundColor="{DynamicResource DeleteButtonColor}"
                                                 TextColor="White" 
                                                 Clicked="OnDeleteMedicationClicked" 
                                                 CommandParameter="{Binding .}" />

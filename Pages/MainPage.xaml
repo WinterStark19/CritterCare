@@ -28,7 +28,7 @@
                         <Frame Padding="10" 
                                Margin="5" 
                                BorderColor="{DynamicResource TextColor}" 
-                               BackgroundColor="{DynamicResource ButtonColor}">
+                               BackgroundColor="{DynamicResource PageForegroundColor}">
                             <VerticalStackLayout VerticalOptions="Start" Spacing="10">
 
                                 <!-- Pet Image -->
@@ -53,7 +53,7 @@
                                 <!-- Buttons -->
                                 <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
                                     <Button Text="Details" 
-                                            BackgroundColor="{DynamicResource ButtonColor}" 
+                                            BackgroundColor="{DynamicResource ButtonColor2}" 
                                             TextColor="{DynamicResource TextColor}" 
                                             Clicked="OnPetDetailsClicked" 
                                             CommandParameter="{Binding .}" />
@@ -75,7 +75,7 @@
 
                                     <!-- Delete Button (far right) -->
                                     <Button Text="Delete" 
-                                            BackgroundColor="Red" 
+                                            BackgroundColor="{DynamicResource DeleteButtonColor}" 
                                             TextColor="White" 
                                             Clicked="OnDeletePetClicked" 
                                             CommandParameter="{Binding .}" />
