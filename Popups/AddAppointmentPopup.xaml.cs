@@ -29,6 +29,7 @@ namespace CritterCare
                 PetId = _petId,
                 Title = TitleEntry.Text,
                 Date = DatePicker.Date,
+                TimeString = TimePicker.Time.ToString("c"),
                 Notes = NotesEditor.Text
             };
 

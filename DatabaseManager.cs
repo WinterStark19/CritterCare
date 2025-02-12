@@ -56,39 +56,62 @@ public class DatabaseManager
             .ToList();
 
         // Create a list of AppointmentWithPet by joining each appointment with the corresponding pet's name
-        var appointmentsWithPet = appointments.Select(a => new AppointmentWithPet
+        var pets = _database.Table<Pet>().ToList();
+        var petDictionary = pets.ToDictionary(p => p.Id, p => p.Name);
+
+        return appointments.Select(a => new AppointmentWithPet
         {
             Id = a.Id,
             PetId = a.PetId,
             Title = a.Title,
             Date = a.Date,
+            Time = a.Time,
             Notes = a.Notes,
-            PetName = _database.Table<Pet>().FirstOrDefault(p => p.Id == a.PetId)?.Name
+            PetName = petDictionary.ContainsKey(a.PetId) ? petDictionary[a.PetId] : "Unknown Pet"
         }).ToList();
 
-        return appointmentsWithPet;
+        /*return appointmentsWithPet*/;
     }
 
-    public class AppointmentWithPet
+    public class AppointmentWithPet : Appointment
     {
-        public int Id { get; set; }
-        public int PetId { get; set; }
-        public string Title { get; set; }
-        public DateTime Date { get; set; }  
-        public string Notes { get; set; }
-        public string PetName { get; set; }  
+        public string PetName { get; set; }
     }
+
+
 }
 
 public class Appointment
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
-    public int PetId { get; set; } 
+    public int PetId { get; set; }
     public string Title { get; set; }
     public DateTime Date { get; set; }
+
+    // Store Time as a string in the database
+    public string TimeString { get; set; }
+
+    // Ignore this property in SQLite (used only in the app)
+    [Ignore]
+    public DateTime Time
+    {
+        get
+        {
+            return string.IsNullOrEmpty(TimeString) ? DateTime.MinValue : DateTime.Parse(TimeString);
+        }
+        set
+        {
+            TimeString = value.ToString("HH:mm");
+        }
+    }
+
     public string Notes { get; set; }
+
+    // Property to display formatted time
+    public string FormattedTime => string.IsNullOrEmpty(TimeString) ? "N/A" : DateTime.Parse(TimeString).ToString("h:mm tt");
 }
+
 
 public class Medication
 {

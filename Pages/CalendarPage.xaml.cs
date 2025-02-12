@@ -118,7 +118,7 @@ namespace CritterCare
 
                 var appointmentLabel = new Label
                 {
-                    Text = $"{petName} - {appointment.Title} at {appointment.Date:hh:mm tt}",
+                    Text = $"{petName} - {appointment.Title} at {appointment.FormattedTime}",
                     TextColor = Color.FromArgb("#0000FF"),
                     HorizontalOptions = LayoutOptions.StartAndExpand,
                     FontSize = 12
@@ -151,13 +151,4 @@ namespace CritterCare
         }
     }
 
-}
-
-// Appointment model
-public class SchedulerAppointment
-{
-    public DateTime StartTime { get; set; }
-    public DateTime EndTime { get; set; }
-    public string Subject { get; set; }
-    public string Location { get; set; }
 }

@@ -13,7 +13,11 @@
         <!-- Date -->
         <Label Text="Date" />
         <DatePicker x:Name="DatePicker" />
-
+		
+		<!-- Time -->
+		<Label Text="Time" />
+		<TimePicker x:Name="TimePicker" />
+		
         <!-- Notes -->
         <Label Text="Notes" />
         <Editor x:Name="NotesEditor" Placeholder="Appointment Notes" />

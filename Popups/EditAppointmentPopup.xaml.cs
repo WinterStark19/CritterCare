@@ -24,6 +24,7 @@ namespace CritterCare
             // Populate fields with existing appointment data
             TitleEntry.Text = _appointment.Title;
             DatePicker.Date = _appointment.Date;
+            TimePicker.Time = string.IsNullOrEmpty(_appointment.TimeString) ? TimeSpan.Zero : TimeSpan.Parse(_appointment.TimeString);
             NotesEditor.Text = _appointment.Notes;
         }
 
@@ -32,6 +33,7 @@ namespace CritterCare
             // Update appointment details
             _appointment.Title = TitleEntry.Text;
             _appointment.Date = DatePicker.Date;
+            _appointment.TimeString = TimePicker.Time.ToString("c");
             _appointment.Notes = NotesEditor.Text;
 
             // Update the database

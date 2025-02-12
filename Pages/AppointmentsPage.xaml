@@ -47,6 +47,12 @@
                                        Margin="5,0,0,0"/>
                                 </StackLayout>
                                 <StackLayout>
+                                    <Label Text="{Binding FormattedTime}"
+                                           FontSize="16"
+                                           TextColor="{DynamicResource SecondaryTextColor}"
+                                           Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
                                     <Label Text="{Binding Notes}"
                                        FontSize="16"
                                        TextColor="{DynamicResource SecondaryTextColor}"

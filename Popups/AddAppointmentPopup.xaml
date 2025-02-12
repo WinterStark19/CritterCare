@@ -13,10 +13,14 @@
 		<!-- Date -->
 		<Label Text="Date" />
 		<DatePicker x:Name="DatePicker" />
-
+		
+		<!-- Time -->
+		<Label Text="Time" />
+		<TimePicker x:Name="TimePicker" />
+		
 		<!-- Notes -->
 		<Label Text="Notes" />
-		<Editor x:Name="NotesEditor" Placeholder="Appointment Notes" />
+		<Editor x:Name="NotesEditor" Placeholder="Appointment Notes" />		
 
 		<!-- Buttons -->
 		<HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
