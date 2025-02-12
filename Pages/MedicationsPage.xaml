@@ -44,21 +44,35 @@
                                     <!-- Spacing between the text and buttons -->
                                     <BoxView HeightRequest="15" BackgroundColor="Transparent" />
 
-                                    <!-- Buttons -->
-                                    <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
-                                        <!-- Spacer -->
-                                        <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand"/>
-                                        <Button Text="Edit"
-                                                BackgroundColor="{DynamicResource EditButtonColor}"
+                                    <!-- Use Grid for proper alignment -->
+                                    <Grid ColumnDefinitions="Auto, * , Auto" HorizontalOptions="FillAndExpand">
+                                        <Button Grid.Column="0"
+                                                Text="Edit"
+                                                BackgroundColor="{DynamicResource ButtonColor2}"
                                                 TextColor="White"
                                                 Clicked="OnEditMedicationClicked"
                                                 CommandParameter="{Binding .}" />
-                                        <Button Text="Delete" 
-                                                BackgroundColor="{DynamicResource DeleteButtonColor}"
-                                                TextColor="White" 
-                                                Clicked="OnDeleteMedicationClicked" 
-                                                CommandParameter="{Binding .}" />           
-                                    </HorizontalStackLayout>
+
+                                        <Frame Grid.Column="2"
+                                               BackgroundColor="{DynamicResource DeleteButtonColor}"
+                                               CornerRadius="5"
+                                               WidthRequest="40"
+                                               HeightRequest="40"
+                                               Padding="0"
+                                               HorizontalOptions="End">
+                                            <Label Text="X"
+                                                   TextColor="White"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   FontAttributes="Bold"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDeleteMedicationClicked"
+                                                                      CommandParameter="{Binding .}" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+                                    </Grid>
 
                                 </VerticalStackLayout>
                             </Frame>
@@ -70,4 +84,91 @@
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
+
+
+<!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CritterCare.MedicationsPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Your Pet's Medications"
+                   FontSize="24"
+                   HorizontalOptions="Center"
+                   TextColor="{DynamicResource TextColor}" />
+
+            --><!-- Add Medication Button above the medication list --><!--
+            <Button Text="Add Medication"
+                    Clicked="OnAddMedicationClicked"
+                    BackgroundColor="{DynamicResource ButtonColor2}"
+                    TextColor="{DynamicResource TextColor}"
+                    HorizontalOptions="Center" 
+                    Padding="10" />
+
+            --><!-- ListView to display medications --><!--
+            <ListView x:Name="MedicationListView" HeightRequest="200"
+                      BackgroundColor="{DynamicResource PageBackgroundColor}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Padding="10" Margin="5" CornerRadius="10" BackgroundColor="{DynamicResource PageForegroundColor}">
+                                <VerticalStackLayout>
+
+                                    --><!-- Medication Details --><!--
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name:  " FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+                                        <Label Text="{Binding Name}" TextColor="{DynamicResource TextColor}" Margin="5,0,0,0"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Dosage:  " FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+                                        <Label Text="{Binding Dosage}" TextColor="{DynamicResource TextColor}" Margin="5,0,0,0"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Frequency:  " FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+                                        <Label Text="{Binding Frequency}" TextColor="{DynamicResource TextColor}" Margin="5,0,0,0"/>
+                                    </StackLayout>
+
+                                    --><!-- Spacing between the text and buttons --><!--
+                                    <BoxView HeightRequest="15" BackgroundColor="Transparent" />
+
+                                    --><!-- Buttons --><!--
+                                    <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+                                        --><!-- Spacer --><!--
+                                        <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand"/>
+                                        <Button Text="Edit"
+                                                BackgroundColor="{DynamicResource ButtonColor2}"
+                                                TextColor="White"
+                                                Clicked="OnEditMedicationClicked"
+                                                CommandParameter="{Binding .}" />
+                                        <Frame BackgroundColor="{DynamicResource DeleteButtonColor}"
+                                               CornerRadius="5"
+                                               WidthRequest="40"
+                                               HeightRequest="40"
+                                               HorizontalOptions="End"
+                                               Padding="0">
+                                            <Label Text="X"
+                                                   TextColor="White"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   FontAttributes="Bold"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDeleteMedicationClicked"
+                                                                      CommandParameter="{Binding .}" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>        
+                                    </HorizontalStackLayout>
+
+                                </VerticalStackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>-->
 

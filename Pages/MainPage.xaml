@@ -15,77 +15,195 @@
                     TextColor="{DynamicResource TextColor}" 
                     Padding="10" 
                     HorizontalOptions="Center"/>
-            <Label Text="Your Pets:" 
+            <!--<Label Text="Your Pets:" 
                    FontSize="18" 
                    FontAttributes="Bold" 
                    TextColor="{DynamicResource TextColor}" 
-                   Margin="0,10,0,5" />
+                   Margin="0,10,0,5" />-->
 
-            <!-- CollectionView -->
             <CollectionView x:Name="PetListView">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Frame Padding="10" 
-                               Margin="5" 
-                               BorderColor="{DynamicResource TextColor}" 
-                               BackgroundColor="{DynamicResource PageForegroundColor}">
-                            <VerticalStackLayout VerticalOptions="Start" Spacing="10">
+                        <StackLayout>
+                            <Frame Padding="10" 
+                                   Margin="5" 
+                                   BorderColor="{DynamicResource TextColor}" 
+                                   BackgroundColor="{DynamicResource PageForegroundColor}">
+                                <VerticalStackLayout VerticalOptions="Start" Spacing="10">
 
-                                <!-- Pet Image -->
-                                <Frame Padding="0" 
-                                       BorderColor="Transparent" 
-                                       BackgroundColor="Transparent" 
-                                       CornerRadius="50" 
-                                       HeightRequest="100" 
-                                       WidthRequest="100">
-                                    <Image Source="{Binding ImageSource}" 
+                                    <!-- Pet Image -->
+                                    <Frame Padding="0" 
+                                           BorderColor="Transparent" 
+                                           BackgroundColor="Transparent" 
+                                           CornerRadius="50" 
                                            HeightRequest="100" 
-                                           WidthRequest="100" 
-                                           Aspect="AspectFill"/>
-                                </Frame>
+                                           WidthRequest="100">
+                                        <Image Source="{Binding ImageSource}" 
+                                               HeightRequest="100" 
+                                               WidthRequest="100" 
+                                               Aspect="AspectFill"/>
+                                    </Frame>
 
-                                <!-- Pet Name (closer to the top) -->
-                                <Label Text="{Binding Name}" 
-                                       FontSize="16" 
-                                       TextColor="{DynamicResource TextColor}" 
-                                       VerticalOptions="Start" />
+                                    <!-- Pet Name -->
+                                    <Label Text="{Binding Name}" 
+                                           FontSize="16" 
+                                           TextColor="{DynamicResource TextColor}" 
+                                           VerticalOptions="Start" />
 
-                                <!-- Buttons -->
-                                <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
-                                    <Button Text="Details" 
-                                            BackgroundColor="{DynamicResource ButtonColor2}" 
-                                            TextColor="{DynamicResource TextColor}" 
-                                            Clicked="OnPetDetailsClicked" 
-                                            CommandParameter="{Binding .}" />
-                                    <Button Text="Manage Appointments" 
-                                            Clicked="OnManageAppointmentsClicked" 
-                                            BackgroundColor="{DynamicResource ButtonColor2}" 
-                                            TextColor="{DynamicResource TextColor}" 
-                                            Padding="10" 
-                                            CommandParameter="{Binding .}" />
-                                    <Button Text="Manage Medications" 
-                                            Clicked="OnManageMedicationsClicked" 
-                                            BackgroundColor="{DynamicResource ButtonColor2}" 
-                                            TextColor="{DynamicResource TextColor}" 
-                                            Padding="10" 
-                                            CommandParameter="{Binding .}" />
+                                    <!-- Use Grid for proper alignment -->
+                                    <Grid ColumnDefinitions="Auto, Auto, Auto, *" HorizontalOptions="FillAndExpand">
+                                        <Button Grid.Column="0"
+                                                Text="Details"
+                                                BackgroundColor="{DynamicResource ButtonColor2}"
+                                                TextColor="{DynamicResource TextColor}"
+                                                Clicked="OnPetDetailsClicked"
+                                                CommandParameter="{Binding .}"
+                                                Margin="0,0,10,0" />
+                                        <Button Grid.Column="1"
+                                                Text="Appointments"
+                                                Clicked="OnManageAppointmentsClicked"
+                                                BackgroundColor="{DynamicResource ButtonColor2}"
+                                                TextColor="{DynamicResource TextColor}"
+                                                Padding="10"
+                                                CommandParameter="{Binding .}"
+                                                Margin="0,0,10,0" />
+                                        <Button Grid.Column="2"
+                                                Text="Medications"
+                                                Clicked="OnManageMedicationsClicked"
+                                                BackgroundColor="{DynamicResource ButtonColor2}"
+                                                TextColor="{DynamicResource TextColor}"
+                                                Padding="10"
+                                                CommandParameter="{Binding .}"
+                                                Margin="0,0,10,0" />
 
-                                    <!-- Spacer to push Delete button to the right -->
-                                    <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand" />
+                                        <!-- Spacer to push Delete button to the right -->
+                                        <BoxView Grid.Column="3" WidthRequest="0" HorizontalOptions="FillAndExpand" />
 
-                                    <!-- Delete Button (far right) -->
-                                    <Button Text="Delete" 
-                                            BackgroundColor="{DynamicResource DeleteButtonColor}" 
-                                            TextColor="White" 
-                                            Clicked="OnDeletePetClicked" 
-                                            CommandParameter="{Binding .}" />
-                                </HorizontalStackLayout>
+                                        <!-- Delete Button (far right) -->
+                                        <Frame Grid.Column="3"
+                                               BackgroundColor="{DynamicResource DeleteButtonColor}"
+                                               CornerRadius="5"
+                                               WidthRequest="40"
+                                               HeightRequest="40"
+                                               Padding="0"
+                                               HorizontalOptions="End">
+                                            <Label Text="X"
+                                                   TextColor="White"
+                                                   VerticalOptions="Center"
+                                                   HorizontalOptions="Center"
+                                                   FontAttributes="Bold"
+                                                   HorizontalTextAlignment="Center"
+                                                   VerticalTextAlignment="Center"/>
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDeletePetClicked"
+                                                                      CommandParameter="{Binding .}" />
+                                            </Frame.GestureRecognizers>
+                                        </Frame>
+                                    </Grid>
 
-                            </VerticalStackLayout>
-                        </Frame>
+                                </VerticalStackLayout>
+                            </Frame>
+                            <!-- Spacer between pet blocks -->
+                            <BoxView HeightRequest="5" BackgroundColor="Transparent" />
+                        </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
+
+<!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="CritterCare.MainPage" 
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            <Label Text="Welcome to Critter Care!" 
+                   FontSize="24" 
+                   FontAttributes="Bold" 
+                   TextColor="{DynamicResource TextColor}" 
+                   HorizontalOptions="Center" />
+            <Button Text="Add Pet" 
+                    Clicked="OpenAddPetPopup" 
+                    BackgroundColor="{DynamicResource ButtonColor2}" 
+                    TextColor="{DynamicResource TextColor}" 
+                    Padding="10" 
+                    HorizontalOptions="Center"/>
+            --><!--<Label Text="Your Pets:" 
+                   FontSize="18" 
+                   FontAttributes="Bold" 
+                   TextColor="{DynamicResource TextColor}" 
+                   Margin="0,10,0,5" />--><!--
+
+            <CollectionView x:Name="PetListView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame Padding="10" 
+                                   Margin="5" 
+                                   BorderColor="{DynamicResource TextColor}" 
+                                   BackgroundColor="{DynamicResource PageForegroundColor}">
+                                <VerticalStackLayout VerticalOptions="Start" Spacing="10">
+
+                                    --><!-- Pet Image --><!--
+                                    <Frame Padding="0" 
+                                           BorderColor="Transparent" 
+                                           BackgroundColor="Transparent" 
+                                           CornerRadius="50" 
+                                           HeightRequest="100" 
+                                           WidthRequest="100">
+                                        <Image Source="{Binding ImageSource}" 
+                                               HeightRequest="100" 
+                                               WidthRequest="100" 
+                                               Aspect="AspectFill"/>
+                                    </Frame>
+
+                                    --><!-- Pet Name --><!--
+                                    <Label Text="{Binding Name}" 
+                                           FontSize="16" 
+                                           TextColor="{DynamicResource TextColor}" 
+                                           VerticalOptions="Start" />
+
+                                    --><!-- Buttons --><!--
+                                    <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+                                        <Button Text="Details" 
+                                                BackgroundColor="{DynamicResource ButtonColor2}" 
+                                                TextColor="{DynamicResource TextColor}" 
+                                                Clicked="OnPetDetailsClicked" 
+                                                CommandParameter="{Binding .}" />
+                                        <Button Text="Appointments" 
+                                                Clicked="OnManageAppointmentsClicked" 
+                                                BackgroundColor="{DynamicResource ButtonColor2}" 
+                                                TextColor="{DynamicResource TextColor}" 
+                                                Padding="10" 
+                                                CommandParameter="{Binding .}" />
+                                        <Button Text="Medications" 
+                                                Clicked="OnManageMedicationsClicked" 
+                                                BackgroundColor="{DynamicResource ButtonColor2}" 
+                                                TextColor="{DynamicResource TextColor}" 
+                                                Padding="10" 
+                                                CommandParameter="{Binding .}" />
+
+                                        --><!-- Spacer to push Delete button to the right --><!--
+                                        <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand" />
+
+                                        --><!-- Delete Button (far right) --><!--
+                                        <Button Text="Delete" 
+                                                BackgroundColor="{DynamicResource DeleteButtonColor}" 
+                                                TextColor="White" 
+                                                Clicked="OnDeletePetClicked" 
+                                                CommandParameter="{Binding .}" />
+                                    </HorizontalStackLayout>
+
+                                </VerticalStackLayout>
+                            </Frame>
+                            --><!-- Spacer between pet blocks --><!--
+                            <BoxView HeightRequest="5" BackgroundColor="Transparent" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>-->

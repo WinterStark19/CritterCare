@@ -41,8 +41,8 @@ namespace CritterCare
 
         private async void OnDeleteAppointmentClicked(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            var appointmentToDelete = (Appointment)button.CommandParameter;
+            var frame = (Frame)sender;
+            var appointmentToDelete = (Appointment)frame.BindingContext;
 
             // Create and show the confirmation popup
             var popup = new ConfirmDeletePopup(appointmentToDelete.Title);
@@ -59,6 +59,7 @@ namespace CritterCare
             // Show the confirmation popup
             await this.ShowPopupAsync(popup);
         }
+
     }
 }
 

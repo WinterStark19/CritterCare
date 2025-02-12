@@ -13,17 +13,19 @@
 
             <!-- Navigation buttons for previous and next week -->
             <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                <Button Text="&lt;" Clicked="OnPreviousWeekClicked"/>
+                <Button Text="&lt;" Clicked="OnPreviousWeekClicked" BackgroundColor="{DynamicResource ButtonColor2}"/>
                 <Label x:Name="CurrentWeekLabel" 
                        VerticalOptions="Center" 
                        HorizontalOptions="Center" 
                        FontSize="20" 
-                       TextColor="{DynamicResource TextColor}"/>
-                <Button Text=">" Clicked="OnNextWeekClicked"/>
+                       TextColor="{DynamicResource TextColor}"
+                       Margin="10,0"/>
+
+                <Button Text=">" Clicked="OnNextWeekClicked" BackgroundColor="{DynamicResource ButtonColor2}"/>
             </StackLayout>
 
             <!-- Weekly Calendar Layout -->
-            <StackLayout x:Name="WeeklyCalendarLayout" Spacing="10">
+            <StackLayout x:Name="WeeklyCalendarLayout" Spacing="10" Margin="0,20,0,0">
                 <!-- This will be populated dynamically in code-behind -->
             </StackLayout>
 

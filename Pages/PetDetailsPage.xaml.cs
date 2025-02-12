@@ -37,6 +37,7 @@ namespace CritterCare
             AgeCard.IsVisible = false;
 
             SaveButton.IsVisible = true; // Show Save button
+            SelectImageButton.IsVisible = true;
         }
 
         private async void SavePet(object sender, EventArgs e)
@@ -60,6 +61,7 @@ namespace CritterCare
             AgeCard.IsVisible = true;
 
             SaveButton.IsVisible = false;
+            SelectImageButton.IsVisible = false;
 
             await Navigation.PushAsync(new MainPage()); // Create a new instance of MainPage to reload it
         }

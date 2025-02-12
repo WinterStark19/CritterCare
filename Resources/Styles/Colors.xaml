@@ -8,9 +8,12 @@
     <!-- Light Mode Colors -->
     <Color x:Key="PageBackgroundColor">#37718E</Color>
     <Color x:Key="PageForegroundColor">#254E70</Color>
+    <Color x:Key="PopupBackgroundColor">#8e8e8e</Color>
     <Color x:Key="TextColor">white</Color>
     <Color x:Key="FlyoutTextColor">white</Color>
     <Color x:Key="DeleteButtonColor">#C33C54</Color>
+    <Color x:Key="CancelButtonColor">#c95065</Color>
+    <Color x:Key="SaveButtonColor">#ace1af</Color>
     <Color x:Key="ButtonColor">#3AAED8</Color>
     <Color x:Key="ButtonColor2">#1D7EC3</Color>
 

@@ -19,7 +19,6 @@
                 Padding="10"
                 HorizontalOptions="Center"/>
 
-
         <ListView x:Name="AppointmentListView"
                   HeightRequest="200"
                   BackgroundColor="{DynamicResource ListBackgroundColor}">
@@ -62,21 +61,35 @@
                                 <!-- Spacing between the text and buttons -->
                                 <BoxView HeightRequest="15" BackgroundColor="Transparent" />
 
-                                <!-- Buttons -->
-                                <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
-                                    <!-- Spacer -->
-                                    <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand"/>
-                                    <Button Text="Edit"
-                                            BackgroundColor="{DynamicResource EditButtonColor}"
+                                <!-- Use Grid for proper alignment -->
+                                <Grid ColumnDefinitions="Auto, * , Auto" HorizontalOptions="FillAndExpand">
+                                    <Button Grid.Column="0"
+                                            Text="Edit"
+                                            BackgroundColor="{DynamicResource ButtonColor2}"
                                             TextColor="White"
                                             Clicked="OnEditAppointmentClicked"
                                             CommandParameter="{Binding .}" />
-                                    <Button Text="Delete"
-                                            BackgroundColor="{DynamicResource DeleteButtonColor}"
-                                            TextColor="White"
-                                            Clicked="OnDeleteAppointmentClicked"
-                                            CommandParameter="{Binding .}" />
-                                </HorizontalStackLayout>
+
+                                    <Frame Grid.Column="2"
+                                           BackgroundColor="{DynamicResource DeleteButtonColor}"
+                                           CornerRadius="5"
+                                           WidthRequest="40"
+                                           HeightRequest="40"
+                                           Padding="0"
+                                           HorizontalOptions="End">
+                                        <Label Text="X"
+                                               TextColor="White"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center"
+                                               FontAttributes="Bold"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalTextAlignment="Center"/>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnDeleteAppointmentClicked"
+                                                                  CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
+                                    </Frame>
+                                </Grid>
 
                             </VerticalStackLayout>
                         </Frame>
@@ -86,3 +99,92 @@
         </ListView>
     </VerticalStackLayout>
 </ContentPage>
+<!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CritterCare.AppointmentsPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <VerticalStackLayout Padding="20" Spacing="15">
+        <Label Text="Upcoming Appointments"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="{DynamicResource TextColor}" />
+
+        --><!-- Add Appointment Button --><!--
+        <Button Text="Add Appointment"
+                Clicked="OnAddAppointmentClicked"
+                BackgroundColor="{DynamicResource ButtonColor2}"
+                TextColor="{DynamicResource TextColor}"
+                CornerRadius="10"
+                Padding="10"
+                HorizontalOptions="Center"/>
+
+        <ListView x:Name="AppointmentListView"
+                  HeightRequest="200"
+                  BackgroundColor="{DynamicResource ListBackgroundColor}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame Padding="10"
+                               Margin="5"
+                               CornerRadius="10"
+                               BackgroundColor="{DynamicResource PageForegroundColor}">
+                            <VerticalStackLayout>
+
+                                --><!-- Appointment Details --><!--
+                                <StackLayout>
+                                    <Label Text="{Binding Title}"
+                                       FontSize="18"
+                                       TextColor="{DynamicResource TextColor}"
+                                       FontAttributes="Bold"
+                                       Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}"
+                                       FontSize="16"
+                                       TextColor="{DynamicResource SecondaryTextColor}"
+                                       Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding FormattedTime}"
+                                           FontSize="16"
+                                           TextColor="{DynamicResource SecondaryTextColor}"
+                                           Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label Text="{Binding Notes}"
+                                       FontSize="16"
+                                       TextColor="{DynamicResource SecondaryTextColor}"
+                                       Margin="5,0,0,0"/>
+                                </StackLayout>
+
+                                --><!-- Spacing between the text and buttons --><!--
+                                <BoxView HeightRequest="15" BackgroundColor="Transparent" />
+
+                                --><!-- Use Grid for proper alignment --><!--
+                                <Grid ColumnDefinitions="Auto, * , Auto" HorizontalOptions="FillAndExpand">
+                                    <Button Grid.Column="0"
+                                            Text="Edit"
+                                            BackgroundColor="{DynamicResource ButtonColor2}"
+                                            TextColor="White"
+                                            Clicked="OnEditAppointmentClicked"
+                                            CommandParameter="{Binding .}" />
+
+                                    <Button Grid.Column="2"
+                                            Text="Delete"
+                                            BackgroundColor="{DynamicResource DeleteButtonColor}"
+                                            TextColor="White"
+                                            Clicked="OnDeleteAppointmentClicked"
+                                            CommandParameter="{Binding .}"
+                                            HorizontalOptions="End"/>
+                                </Grid>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </VerticalStackLayout>
+</ContentPage>-->

@@ -4,29 +4,32 @@
                 xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
                 x:Class="CritterCare.EditAppointmentPopup">
 
-    <VerticalStackLayout Padding="20" BackgroundColor="White" Spacing="15">
+	<Frame BackgroundColor="{DynamicResource PopupBackgroundColor}" Padding="0" HasShadow="True" CornerRadius="10">
+		<VerticalStackLayout Padding="20" Spacing="15">
 
-        <!-- Title -->
-        <Label Text="Title" />
-        <Entry x:Name="TitleEntry" Placeholder="Appointment Title" />
+			<!-- Title -->
+			<Label Text="Title" />
+			<Entry x:Name="TitleEntry" Placeholder="Appointment Title" />
 
-        <!-- Date -->
-        <Label Text="Date" />
-        <DatePicker x:Name="DatePicker" />
-		
-		<!-- Time -->
-		<Label Text="Time" />
-		<TimePicker x:Name="TimePicker" />
-		
-        <!-- Notes -->
-        <Label Text="Notes" />
-        <Editor x:Name="NotesEditor" Placeholder="Appointment Notes" />
+			<!-- Date -->
+			<Label Text="Date" />
+			<DatePicker x:Name="DatePicker" />
 
-        <!-- Buttons -->
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
-            <Button Text="Save" Clicked="SaveAppointment" BackgroundColor="LightGreen"/>
-            <Button Text="Cancel" Clicked="ClosePopup" BackgroundColor="LightCoral"/>
-        </HorizontalStackLayout>
+			<!-- Time -->
+			<Label Text="Time" />
+			<TimePicker x:Name="TimePicker" />
 
-    </VerticalStackLayout>
+			<!-- Notes -->
+			<Label Text="Notes" />
+			<Editor x:Name="NotesEditor" Placeholder="Appointment Notes" />
+
+			<!-- Buttons -->
+			<HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
+				<Button Text="Save" Clicked="SaveAppointment" BackgroundColor="{DynamicResource SaveButtonColor}"/>
+				<Button Text="Cancel" Clicked="ClosePopup" BackgroundColor="{DynamicResource CancelButtonColor}"/>
+			</HorizontalStackLayout>
+
+		</VerticalStackLayout>
+	</Frame>
 </toolkit:Popup>
+

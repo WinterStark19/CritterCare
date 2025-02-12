@@ -6,11 +6,76 @@
 
     <VerticalStackLayout Padding="20" BackgroundColor="{DynamicResource PageBackgroundColor}" Spacing="15">
 
-        <!-- Name -->
+        <!-- Edit Button -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
+            <Button Text="Edit" Clicked="EditPet" TextColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor2}"/>
+            <Button x:Name="SaveButton" Text="Save" Clicked="SavePet" BackgroundColor="LightGreen" IsVisible="False"/>
+        </HorizontalStackLayout>
+
+        <!-- Name & Weight -->
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Name" FontAttributes="Bold"/>
+                <Entry x:Name="PetNameEntry" IsReadOnly="True" Placeholder="Pet Name" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Weight (lbs)" FontAttributes="Bold"/>
+                <Entry x:Name="PetWeightEntry" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Species & Breed -->
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Species" FontAttributes="Bold"/>
+                <Entry x:Name="PetSpeciesEntry" IsReadOnly="True" Placeholder="Species" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Breed" FontAttributes="Bold"/>
+                <Entry x:Name="PetBreedEntry" IsReadOnly="True" Placeholder="Breed" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Birthdate & Age -->
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <VerticalStackLayout Grid.Column="0">
+                <Label Text="Birth Date" FontAttributes="Bold"/>
+                <DatePicker x:Name="PetBirthDatePicker" IsEnabled="False" TextColor="{DynamicResource TextColor}"/>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1" x:Name="AgeCard">
+                <Label Text="Age" FontAttributes="Bold"/>
+                <Entry x:Name="AgeEntry" IsReadOnly="True" />
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Select Image Button (hidden initially, shown in edit mode) -->
+        <Button x:Name="SelectImageButton" Text="Select Image" Clicked="OnSelectImageClicked" 
+                TextColor="{DynamicResource TextColor}" 
+                BackgroundColor="{DynamicResource ButtonColor2}"
+                IsVisible="False"/>
+
+        <!-- Pet Image -->
+        <Image x:Name="PetImage" HeightRequest="200" WidthRequest="200" />
+
+    </VerticalStackLayout>
+</ContentPage>
+
+
+<!--<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CritterCare.PetDetailsPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <VerticalStackLayout Padding="20" BackgroundColor="{DynamicResource PageBackgroundColor}" Spacing="15">
+
+        --><!-- Name --><!--
         <Label Text="Name" />
         <Entry x:Name="PetNameEntry" IsReadOnly="True" Placeholder="Pet Name" />
 
-        <!-- Species & Breed -->
+        --><!-- Species & Breed --><!--
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
                 <Label Text="Species" />
@@ -23,7 +88,7 @@
             </VerticalStackLayout>
         </Grid>
 
-        <!-- Birthdate & Age -->
+        --><!-- Birthdate & Age --><!--
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
                 <Label Text="Birth Date" />
@@ -36,14 +101,14 @@
         </Grid>
 
 
-        <!-- Weight -->
+        --><!-- Weight --><!--
         <Label Text="Weight (lbs)" />
         <Entry x:Name="PetWeightEntry" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
 
         <Button Text="Select Image" Clicked="OnSelectImageClicked" TextColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor2}"/>
         <Image x:Name="PetImage" HeightRequest="200" WidthRequest="200" />
 
-        <!-- Buttons -->
+        --><!-- Buttons --><!--
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
             <Button Text="Edit" Clicked="EditPet" TextColor="{DynamicResource TextColor}" BackgroundColor="{DynamicResource ButtonColor2}"/>
             <Button x:Name="SaveButton" Text="Save" Clicked="SavePet" BackgroundColor="LightGreen" IsVisible="False"/>
@@ -51,4 +116,4 @@
         </HorizontalStackLayout>
 
     </VerticalStackLayout>
-</ContentPage>
+</ContentPage>-->

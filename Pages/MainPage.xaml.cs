@@ -43,8 +43,8 @@ namespace CritterCare
 
         private async void OnDeletePetClicked(object sender, EventArgs e)
         {
-            var button = (Button)sender;
-            var petToDelete = (Pet)button.CommandParameter;
+            var frame = (Frame)sender;
+            var petToDelete = (Pet)frame.BindingContext;
 
             // Create and show the confirmation popup
             var popup = new ConfirmDeletePopup(petToDelete.Name);

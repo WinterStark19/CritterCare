@@ -3,52 +3,52 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
-    x:Class="CritterCare.AddPetPopup"
-    Color="Gray">
+    x:Class="CritterCare.AddPetPopup">
 
-    <VerticalStackLayout Padding="20" BackgroundColor="White" Spacing="15">
+    <Frame BackgroundColor="{DynamicResource PopupBackgroundColor}" Padding="0" HasShadow="True" CornerRadius="10">
+        <VerticalStackLayout Padding="20" Spacing="15">
 
-        <!-- Name -->
-        <Label Text="Name" />
-        <Entry x:Name="NameEntry"/>
+            <!-- Name -->
+            <Label Text="Name" />
+            <Entry x:Name="NameEntry"/>
 
-        <!-- Species & Breed -->
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-            <VerticalStackLayout Grid.Column="0">
-                <Label Text="Species" />
-                <Entry x:Name="SpeciesEntry"/>
-            </VerticalStackLayout>
+            <!-- Species & Breed -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="Species" />
+                    <Entry x:Name="SpeciesEntry"/>
+                </VerticalStackLayout>
 
-            <VerticalStackLayout Grid.Column="1">
-                <Label Text="Breed" />
-                <Entry x:Name="BreedEntry" />
-            </VerticalStackLayout>
-        </Grid>
+                <VerticalStackLayout Grid.Column="1">
+                    <Label Text="Breed" />
+                    <Entry x:Name="BreedEntry" />
+                </VerticalStackLayout>
+            </Grid>
 
-        <!-- Birthdate & Age -->
-        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
-            <VerticalStackLayout Grid.Column="0">
-                <Label Text="Birth Date" />
-                <DatePicker x:Name="BirthDatePicker" DateSelected="OnBirthDateChanged" />
-            </VerticalStackLayout>
+            <!-- Birthdate & Age -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+                <VerticalStackLayout Grid.Column="0">
+                    <Label Text="Birth Date" />
+                    <DatePicker x:Name="BirthDatePicker" DateSelected="OnBirthDateChanged" />
+                </VerticalStackLayout>
 
-            <VerticalStackLayout Grid.Column="1" IsVisible="False">
-                <Label Text="Age" />
-                <Entry x:Name="AgeEntry" IsReadOnly="True"/>
-            </VerticalStackLayout>
-        </Grid>
+                <VerticalStackLayout Grid.Column="1" IsVisible="False">
+                    <Label Text="Age" />
+                    <Entry x:Name="AgeEntry" IsReadOnly="True"/>
+                </VerticalStackLayout>
+            </Grid>
 
-        <!-- Weight -->
-        <Label Text="Weight (lbs)" />
-        <Entry x:Name="WeightEntry" Keyboard="Numeric" />
+            <!-- Weight -->
+            <Label Text="Weight (lbs)" />
+            <Entry x:Name="WeightEntry" Keyboard="Numeric" />
 
-        <!-- Buttons -->
-        <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
-            <Button Text="Save Pet" Clicked="OnSavePetClicked"/>
-            <Button Text="Close" Clicked="ClosePopup"/>
-        </HorizontalStackLayout>
+            <!-- Buttons -->
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
+                <Button Text="Save Pet" Clicked="OnSavePetClicked" BackgroundColor="{DynamicResource SaveButtonColor}"/>
+                <Button Text="Close" Clicked="ClosePopup" BackgroundColor="{DynamicResource CancelButtonColor}"/>
+            </HorizontalStackLayout>
 
-    </VerticalStackLayout>
-
+        </VerticalStackLayout>
+    </Frame>
 </toolkit:Popup>
 

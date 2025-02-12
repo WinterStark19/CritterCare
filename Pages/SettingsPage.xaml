@@ -16,6 +16,6 @@
 		<!-- Save Button -->
 		<Button Text="Save Settings" Clicked="OnSaveSettingsClicked"
                 TextColor="{DynamicResource TextColor}"
-                BackgroundColor="{DynamicResource ButtonBackgroundColor}" />
+                BackgroundColor="{DynamicResource ButtonColor2}" />
 	</VerticalStackLayout>
 </ContentPage>
