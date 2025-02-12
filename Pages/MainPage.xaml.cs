@@ -20,7 +20,7 @@ namespace CritterCare
             this.ShowPopup(new AddPetPopup(LoadPetData));
         }
 
-        private void LoadPetData()
+        public void LoadPetData()
         {
             var pets = _databaseManager.GetPets();
             foreach (var pet in pets)

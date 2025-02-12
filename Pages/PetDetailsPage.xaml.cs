@@ -62,12 +62,44 @@ namespace CritterCare
             SaveButton.IsVisible = false;
 
             // Navigate back to the previous page
-            await Navigation.PopAsync();
+            await Navigation.PushAsync(new MainPage()); // Create a new instance of MainPage to reload it
         }
 
         private async void CancelEdit(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
+        }
+
+        private async void OnSelectImageClicked(object sender, EventArgs e)
+        {
+            // Use MediaPicker to allow the user to pick an image from their device
+            try
+            {
+                var result = await MediaPicker.PickPhotoAsync(new MediaPickerOptions
+                {
+                    Title = "Select a photo"
+                });
+
+                if (result != null)
+                {
+                    // Read the picked image as a stream
+                    var imageStream = await result.OpenReadAsync();
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        await imageStream.CopyToAsync(memoryStream);
+                        _pet.Image = memoryStream.ToArray();  // Save image as byte array
+                        _pet.ImageSource = ImageSource.FromStream(() => new MemoryStream(_pet.Image)); // Convert byte array to ImageSource
+                    }
+
+                    // Update the displayed image
+                    PetImage.Source = _pet.ImageSource;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle error (e.g., user canceled or error during picking image)
+                Console.WriteLine($"Error selecting image: {ex.Message}");
+            }
         }
 
         private int CalculateAge(DateTime birthDate)

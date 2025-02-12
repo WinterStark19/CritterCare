@@ -40,6 +40,9 @@
         <Label Text="Weight (lbs)" />
         <Entry x:Name="PetWeightEntry" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
 
+        <Button Text="Select Image" Clicked="OnSelectImageClicked" BackgroundColor="LightSkyBlue"/>
+        <Image x:Name="PetImage" HeightRequest="200" WidthRequest="200" />
+
         <!-- Buttons -->
         <HorizontalStackLayout HorizontalOptions="Center" Spacing="20" Padding="10">
             <Button Text="Edit" Clicked="EditPet" BackgroundColor="LightBlue"/>
