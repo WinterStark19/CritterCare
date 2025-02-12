@@ -29,6 +29,15 @@ namespace CritterCare
             // Show popup to add a new appointment
             this.ShowPopup(new AddAppointmentPopup(_petId, LoadAppointments));
         }
+        private async void OnEditAppointmentClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var appointmentToEdit = (Appointment)button.CommandParameter;
+
+            // Show popup to edit the appointment
+            var editPopup = new EditAppointmentPopup(appointmentToEdit, LoadAppointments);
+            await this.ShowPopupAsync(editPopup);
+        }
 
         private async void OnDeleteAppointmentClicked(object sender, EventArgs e)
         {

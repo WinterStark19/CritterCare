@@ -29,6 +29,15 @@ namespace CritterCare
             // Show popup to add a new medication
             this.ShowPopup(new AddMedicationPopup(_petId, LoadMedications));
         }
+        private async void OnEditMedicationClicked(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var medicationToEdit = (Medication)button.CommandParameter;
+
+            // Show popup to edit the medication
+            var editPopup = new EditMedicationPopup(medicationToEdit, LoadMedications);
+            await this.ShowPopupAsync(editPopup);
+        }
 
         private async void OnDeleteMedicationClicked(object sender, EventArgs e)
         {

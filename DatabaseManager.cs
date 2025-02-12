@@ -35,11 +35,14 @@ public class DatabaseManager
     // Appointment methods
     public void InsertAppointment(Appointment appointment) => _database.Insert(appointment);
     public List<Appointment> GetAppointmentsForPet(int petId) => _database.Table<Appointment>().Where(a => a.PetId == petId).ToList();
+    public void UpdateAppointment(Appointment appointment) => _database.Update(appointment);
     public void DeleteAppointment(int id) => _database.Delete<Appointment>(id);
 
     // Medication methods
     public void InsertMedication(Medication medication) => _database.Insert(medication);
     public List<Medication> GetMedicationsForPet(int petId) => _database.Table<Medication>().Where(m => m.PetId == petId).ToList();
+
+    public void UpdateMedication(Medication medication) => _database.Update(medication);
     public void DeleteMedication(int id) => _database.Delete<Medication>(id);
 
     public List<AppointmentWithPet> GetAppointmentsForWeek(DateTime startOfWeek)

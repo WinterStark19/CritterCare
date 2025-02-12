@@ -46,14 +46,20 @@
 
                                     <!-- Buttons -->
                                     <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
-                                        <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand"/>
                                         <!-- Spacer -->
+                                        <BoxView WidthRequest="0" HorizontalOptions="FillAndExpand"/>
+                                        <Button Text="Edit"
+                                                BackgroundColor="{DynamicResource EditButtonColor}"
+                                                TextColor="White"
+                                                Clicked="OnEditMedicationClicked"
+                                                CommandParameter="{Binding .}" />
                                         <Button Text="Delete" 
                                                 BackgroundColor="{DynamicResource DeleteButtonColor}"
                                                 TextColor="White" 
                                                 Clicked="OnDeleteMedicationClicked" 
-                                                CommandParameter="{Binding .}" />
+                                                CommandParameter="{Binding .}" />           
                                     </HorizontalStackLayout>
+
                                 </VerticalStackLayout>
                             </Frame>
                         </ViewCell>

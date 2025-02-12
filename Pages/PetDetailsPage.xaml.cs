@@ -61,7 +61,6 @@ namespace CritterCare
 
             SaveButton.IsVisible = false;
 
-            // Navigate back to the previous page
             await Navigation.PushAsync(new MainPage()); // Create a new instance of MainPage to reload it
         }
 
