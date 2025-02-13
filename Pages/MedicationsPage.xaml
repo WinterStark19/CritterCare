@@ -19,7 +19,7 @@
                     Padding="10" />
 
             <!-- ListView to display medications -->
-            <ListView x:Name="MedicationListView" HeightRequest="200"
+            <ListView x:Name="MedicationListView"
                       BackgroundColor="{DynamicResource PageBackgroundColor}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
