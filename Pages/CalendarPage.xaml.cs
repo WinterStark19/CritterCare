@@ -32,13 +32,13 @@ namespace CritterCare
             var daysOfWeek = new[] { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
             var dayColors = new[]
             {
-                Color.FromArgb("#F8BCC6"), // Sunday
-                Color.FromArgb("#FFDBB2"), // Monday
-                Color.FromArgb("#B9E0C9"), // Tuesday
-                Color.FromArgb("#A6D1F0"), // Wednesday
-                Color.FromArgb("#D3B9D3"), // Thursday
-                Color.FromArgb("#F9D18E"), // Friday
-                Color.FromArgb("#A398C4")
+                Color.FromArgb("#f6a5b2"), // Sunday
+                Color.FromArgb("#ffcf99"), // Monday
+                Color.FromArgb("#a7d8bb"), // Tuesday
+                Color.FromArgb("#90c6ec"), // Wednesday
+                Color.FromArgb("#c9a9c9"), // Thursday
+                Color.FromArgb("#f8c776"), // Friday
+                Color.FromArgb("#9588bb")  // Saturday
             };
 
             for (int i = 0; i < 7; i++)
