@@ -31,6 +31,27 @@
                                    BackgroundColor="{DynamicResource PageForegroundColor}">
                                 <VerticalStackLayout VerticalOptions="Start" Spacing="10">
 
+                                    <!-- Delete Button (far right) -->
+                                    <Frame Grid.Column="3"
+                                        BackgroundColor="{DynamicResource DeleteButtonColor}"
+                                        CornerRadius="5"
+                                        WidthRequest="40"
+                                        HeightRequest="40"
+                                        Padding="0"
+                                        HorizontalOptions="End">
+                                        <Label Text="X"
+                                            TextColor="White"
+                                            VerticalOptions="Center"
+                                            HorizontalOptions="Center"
+                                            FontAttributes="Bold"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"/>
+                                            <Frame.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="OnDeletePetClicked"
+                                                CommandParameter="{Binding .}" />
+                                            </Frame.GestureRecognizers>
+                                    </Frame>
+
                                     <!-- Pet Image -->
                                     <Frame Padding="0" 
                                            BorderColor="Transparent" 
@@ -78,27 +99,6 @@
 
                                         <!-- Spacer to push Delete button to the right -->
                                         <BoxView Grid.Column="3" WidthRequest="0" HorizontalOptions="FillAndExpand" />
-
-                                        <!-- Delete Button (far right) -->
-                                        <Frame Grid.Column="3"
-                                               BackgroundColor="{DynamicResource DeleteButtonColor}"
-                                               CornerRadius="5"
-                                               WidthRequest="40"
-                                               HeightRequest="40"
-                                               Padding="0"
-                                               HorizontalOptions="End">
-                                            <Label Text="X"
-                                                   TextColor="White"
-                                                   VerticalOptions="Center"
-                                                   HorizontalOptions="Center"
-                                                   FontAttributes="Bold"
-                                                   HorizontalTextAlignment="Center"
-                                                   VerticalTextAlignment="Center"/>
-                                            <Frame.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="OnDeletePetClicked"
-                                                                      CommandParameter="{Binding .}" />
-                                            </Frame.GestureRecognizers>
-                                        </Frame>
                                     </Grid>
 
                                 </VerticalStackLayout>
