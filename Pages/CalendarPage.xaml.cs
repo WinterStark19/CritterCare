@@ -26,7 +26,7 @@ namespace CritterCare
 
         private void CreateWeekView(DateTime weekStart)
         {
-            CurrentWeekLabel.Text = $"{weekStart:MMMM d, yyyy} - {weekStart.AddDays(6):MMMM d, yyyy}";
+            CurrentWeekLabel.Text = $"{weekStart:MMMM yyyy}";
             WeeklyCalendarLayout.Children.Clear();
 
             var daysOfWeek = new[] { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
