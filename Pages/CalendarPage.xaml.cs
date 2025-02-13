@@ -119,7 +119,7 @@ namespace CritterCare
                 var appointmentLabel = new Label
                 {
                     Text = $"{petName} - {appointment.Title} at {appointment.FormattedTime}",
-                    TextColor = Color.FromArgb("#0000FF"),
+                    TextColor = Color.FromArgb("#254E70"),
                     HorizontalOptions = LayoutOptions.StartAndExpand,
                     FontSize = 12
                 };

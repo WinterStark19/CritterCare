@@ -15,12 +15,12 @@
         <!-- Name & Weight -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
-                <Label Text="Name" FontAttributes="Bold"/>
+                <Label Text="Name" FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
                 <Entry x:Name="PetNameEntry" IsReadOnly="True" Placeholder="Pet Name" />
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="1">
-                <Label Text="Weight (lbs)" FontAttributes="Bold"/>
+                <Label Text="Weight (lbs)" FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
                 <Entry x:Name="PetWeightEntry" IsReadOnly="True" Placeholder="Weight" Keyboard="Numeric"/>
             </VerticalStackLayout>
         </Grid>
@@ -28,24 +28,24 @@
         <!-- Species & Breed -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
-                <Label Text="Species" FontAttributes="Bold"/>
-                <Entry x:Name="PetSpeciesEntry" IsReadOnly="True" Placeholder="Species" />
+                <Label Text="Species" FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+                <Entry x:Name="PetSpeciesEntry" IsReadOnly="True" Placeholder="Species" TextColor="{DynamicResource TextColor}"/>
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="1">
-                <Label Text="Breed" FontAttributes="Bold"/>
-                <Entry x:Name="PetBreedEntry" IsReadOnly="True" Placeholder="Breed" />
+                <Label Text="Breed" FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
+                <Entry x:Name="PetBreedEntry" IsReadOnly="True" Placeholder="Breed" TextColor="{DynamicResource TextColor}"/>
             </VerticalStackLayout>
         </Grid>
 
         <!-- Birthdate & Age -->
         <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
             <VerticalStackLayout Grid.Column="0">
-                <Label Text="Birth Date" FontAttributes="Bold"/>
+                <Label Text="Birth Date" FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
                 <DatePicker x:Name="PetBirthDatePicker" IsEnabled="False" TextColor="{DynamicResource TextColor}"/>
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Column="1" x:Name="AgeCard">
-                <Label Text="Age" FontAttributes="Bold"/>
+                <Label Text="Age" FontAttributes="Bold" TextColor="{DynamicResource TextColor}"/>
                 <Entry x:Name="AgeEntry" IsReadOnly="True" />
             </VerticalStackLayout>
         </Grid>
