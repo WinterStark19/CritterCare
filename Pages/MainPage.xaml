@@ -15,11 +15,6 @@
                     TextColor="{DynamicResource TextColor}" 
                     Padding="10" 
                     HorizontalOptions="Center"/>
-            <!--<Label Text="Your Pets:" 
-                   FontSize="18" 
-                   FontAttributes="Bold" 
-                   TextColor="{DynamicResource TextColor}" 
-                   Margin="0,10,0,5" />-->
 
             <CollectionView x:Name="PetListView">
                 <CollectionView.ItemTemplate>
@@ -46,10 +41,10 @@
                                             FontAttributes="Bold"
                                             HorizontalTextAlignment="Center"
                                             VerticalTextAlignment="Center"/>
-                                            <Frame.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="OnDeletePetClicked"
-                                                CommandParameter="{Binding .}" />
-                                            </Frame.GestureRecognizers>
+                                        <Frame.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="OnDeletePetClicked"
+                                                                  CommandParameter="{Binding .}" />
+                                        </Frame.GestureRecognizers>
                                     </Frame>
 
                                     <!-- Pet Image -->
@@ -71,34 +66,40 @@
                                            TextColor="{DynamicResource TextColor}" 
                                            VerticalOptions="Start" />
 
-                                    <!-- Use Grid for proper alignment -->
-                                    <Grid ColumnDefinitions="Auto, Auto, Auto, *" HorizontalOptions="FillAndExpand">
+                                    <!-- Use Grid for proper alignment and responsiveness -->
+                                    <Grid ColumnDefinitions="*,*,*,Auto" 
+                                          HorizontalOptions="FillAndExpand">
+                                        <!-- Buttons with flexibility to resize -->
                                         <Button Grid.Column="0"
                                                 Text="Details"
                                                 BackgroundColor="{DynamicResource ButtonColor2}"
                                                 TextColor="{DynamicResource TextColor}"
                                                 Clicked="OnPetDetailsClicked"
                                                 CommandParameter="{Binding .}"
-                                                Margin="0,0,10,0" />
+                                                Margin="0,0,10,0" 
+                                                HorizontalOptions="FillAndExpand"/>
                                         <Button Grid.Column="1"
                                                 Text="Appointments"
-                                                Clicked="OnManageAppointmentsClicked"
                                                 BackgroundColor="{DynamicResource ButtonColor2}"
                                                 TextColor="{DynamicResource TextColor}"
-                                                Padding="10"
+                                                Clicked="OnManageAppointmentsClicked"
                                                 CommandParameter="{Binding .}"
-                                                Margin="0,0,10,0" />
+                                                Padding="10"
+                                                Margin="0,0,10,0" 
+                                                HorizontalOptions="FillAndExpand"/>
                                         <Button Grid.Column="2"
                                                 Text="Medications"
-                                                Clicked="OnManageMedicationsClicked"
                                                 BackgroundColor="{DynamicResource ButtonColor2}"
                                                 TextColor="{DynamicResource TextColor}"
-                                                Padding="10"
+                                                Clicked="OnManageMedicationsClicked"
                                                 CommandParameter="{Binding .}"
-                                                Margin="0,0,10,0" />
-
+                                                Padding="10"
+                                                Margin="0,0,10,0" 
+                                                HorizontalOptions="FillAndExpand"/>
                                         <!-- Spacer to push Delete button to the right -->
-                                        <BoxView Grid.Column="3" WidthRequest="0" HorizontalOptions="FillAndExpand" />
+                                        <BoxView Grid.Column="3" 
+                                                 WidthRequest="0" 
+                                                 HorizontalOptions="FillAndExpand"/>
                                     </Grid>
 
                                 </VerticalStackLayout>
@@ -112,6 +113,7 @@
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
+
 
 <!--<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
